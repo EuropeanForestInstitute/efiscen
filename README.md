@@ -5,4 +5,4 @@ Detailed desription and history of development published on [EFI site][efi]
 
 
 
-[efi]: <http://http://www.efi.int/portal/virtual_library/databases/efiscen/>
+[efi]: <http://www.efi.int/portal/virtual_library/databases/efiscen/>
