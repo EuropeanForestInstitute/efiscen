@@ -172,6 +172,7 @@ public class DatabaseWriter {
      * and nwl_int to  carbonsoil-table.
      * @param sid Session id that will be present in all data entries saved into 
      * a database. Can be used for example to identify data from certain run of the EFISCEN tool.
+     * @param soil_id internal EFISCEN soil identifier
      * @param step current year 
      * @param c_trees total Carbon in trees
      * @param cwl Carbon in coarse woody litter
