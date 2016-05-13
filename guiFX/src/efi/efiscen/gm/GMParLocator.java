@@ -50,6 +50,9 @@ public class GMParLocator implements Serializable {
         }
     }
     
+    /**
+     * Name of ParLocator, especially useful for error reporting
+     */
     public String m_sName;
 
     protected HashMap<Long,GMParArray> m_mElements;
