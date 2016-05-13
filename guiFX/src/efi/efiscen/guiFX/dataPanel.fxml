@@ -1,0 +1,784 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Copyright (C) 2016 European Forest Institute
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-->
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<?scenebuilder-preview-i18n-resource ../localization/language_en.properties?>
+
+<VBox spacing="5.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+    <LineChart fx:id="historyChart" animated="false" legendSide="RIGHT" legendVisible="true" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="220.0" prefWidth="789.0" VBox.vgrow="ALWAYS">
+      <xAxis>
+        <NumberAxis animated="false" autoRanging="true" label="%key.steps" lowerBound="0.0" minorTickVisible="true" side="BOTTOM" tickLabelGap="1.0" tickMarkVisible="true" tickUnit="1.0" upperBound="5.0" />
+      </xAxis>
+      <yAxis>
+        <NumberAxis animated="false" label="" side="LEFT" />
+      </yAxis>
+    </LineChart>
+      <VBox fx:id="datapanelgroup" spacing="5.0" styleClass="panel">
+         <children>
+            <HBox spacing="15.0">
+               <children>
+              <Label layoutX="32.0" layoutY="17.0" text="%key.matrices" />
+              <Label id="matricesLabel" fx:id="matNum" layoutX="103.0" layoutY="17.0" text="0" />
+               </children>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </HBox>
+        <Label layoutX="32.0" layoutY="42.0" text="%key.general" />
+      <GridPane layoutX="8.0" layoutY="7.0" minWidth="0.0" styleClass="panel_white">
+        <children>
+          <GridPane minWidth="200.0" GridPane.columnIndex="0" GridPane.rowIndex="0">
+            <children>
+              <ToggleButton fx:id="Vol" mnemonicParsing="false" onAction="#listenGraphButtons" prefWidth="90.0" styleClass="graphbutton" text="%key.grstock" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                           <tooltip>
+                              <Tooltip text="%key.VolTip" />
+                           </tooltip></ToggleButton>
+              <Label fx:id="jVolumeValue" text="0.0" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="0">
+                <GridPane.margin>
+                  <Insets right="5.0" />
+                </GridPane.margin>
+              </Label>
+              <Label text="%key.VolUnit" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+            </children>
+            <columnConstraints>
+              <ColumnConstraints hgrow="SOMETIMES" minWidth="90.0" prefWidth="100.0" />
+              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            </columnConstraints>
+            <rowConstraints>
+              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            </rowConstraints>
+          </GridPane>
+          <GridPane minWidth="200.0" GridPane.columnIndex="0" GridPane.rowIndex="1">
+            <children>
+              <ToggleButton fx:id="avgVolume" mnemonicParsing="false" onAction="#listenGraphButtons" prefWidth="90.0" text="%key.avrgrstock" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                           <tooltip>
+                              <Tooltip text="%key.avgVolumeTip" />
+                           </tooltip></ToggleButton>
+              <Label fx:id="jAvVolumeValue" text="0.0" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="0">
+                <GridPane.margin>
+                  <Insets right="5.0" />
+                </GridPane.margin>
+              </Label>
+              <Label text="%key.avgVolumeUnit" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+            </children>
+            <columnConstraints>
+              <ColumnConstraints hgrow="SOMETIMES" minWidth="90.0" prefWidth="100.0" />
+              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            </columnConstraints>
+            <rowConstraints>
+              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            </rowConstraints>
+          </GridPane>
+          <GridPane minWidth="200.0" GridPane.columnIndex="0" GridPane.rowIndex="2">
+            <children>
+              <ToggleButton fx:id="IncrAv" mnemonicParsing="false" onAction="#listenGraphButtons" prefWidth="90.0" text="%key.increment" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                           <tooltip>
+                              <Tooltip text="%key.IncrAvTip" />
+                           </tooltip></ToggleButton>
+              <Label fx:id="jIncrAvValue" text="0.0" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="0">
+                <GridPane.margin>
+                  <Insets right="5.0" />
+                </GridPane.margin>
+              </Label>
+              <Label text="%key.IncrAvUnit" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+            </children>
+            <columnConstraints>
+              <ColumnConstraints hgrow="SOMETIMES" minWidth="90.0" prefWidth="100.0" />
+              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            </columnConstraints>
+            <rowConstraints>
+              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            </rowConstraints>
+          </GridPane>
+          <GridPane minWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="0">
+            <children>
+              <ToggleButton fx:id="AfforFund" mnemonicParsing="false" onAction="#listenGraphButtons" prefWidth="90.0" text="%key.afforfund" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                           <tooltip>
+                              <Tooltip text="%key.AfforFundTip" />
+                           </tooltip></ToggleButton>
+              <Label fx:id="jAfforFundValue" text="0.0" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="0">
+                <GridPane.margin>
+                  <Insets right="5.0" />
+                </GridPane.margin>
+              </Label>
+              <Label text="%key.AfforFundUnit" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+            </children>
+            <columnConstraints>
+              <ColumnConstraints hgrow="SOMETIMES" minWidth="90.0" prefWidth="100.0" />
+              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            </columnConstraints>
+            <rowConstraints>
+              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            </rowConstraints>
+          </GridPane>
+          <GridPane minWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <children>
+              <ToggleButton fx:id="BareArea" mnemonicParsing="false" onAction="#listenGraphButtons" prefWidth="90.0" text="%key.barearea" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                           <tooltip>
+                              <Tooltip text="%key.BareAreaTip" />
+                           </tooltip></ToggleButton>
+              <Label fx:id="jBareAreaValue" text="0.0" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="0">
+                <GridPane.margin>
+                  <Insets right="5.0" />
+                </GridPane.margin>
+              </Label>
+              <Label text="%key.BareAreaUnit" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+            </children>
+            <columnConstraints>
+              <ColumnConstraints hgrow="SOMETIMES" minWidth="90.0" prefWidth="100.0" />
+              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            </columnConstraints>
+            <rowConstraints>
+              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            </rowConstraints>
+          </GridPane>
+          <GridPane minWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <children>
+              <ToggleButton fx:id="NatMort" mnemonicParsing="false" onAction="#listenGraphButtons" prefWidth="90.0" text="%key.natmortality" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                           <tooltip>
+                              <Tooltip text="%key.NatMortTip" />
+                           </tooltip></ToggleButton>
+              <Label fx:id="jNatMortValue" text="0.0" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="0">
+                <GridPane.margin>
+                  <Insets right="5.0" />
+                </GridPane.margin>
+              </Label>
+              <Label text="%key.NatMortUnit" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+            </children>
+            <columnConstraints>
+              <ColumnConstraints fillWidth="true" hgrow="SOMETIMES" minWidth="92.0" prefWidth="100.0" />
+              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            </columnConstraints>
+            <rowConstraints>
+              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            </rowConstraints>
+          </GridPane>
+          <GridPane minWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="0">
+            <children>
+              <ToggleButton fx:id="Area" mnemonicParsing="false" onAction="#listenGraphButtons" prefWidth="90.0" text="%key.area" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                           <tooltip>
+                              <Tooltip text="%key.AreaTip" />
+                           </tooltip></ToggleButton>
+              <Label fx:id="jAreaValue" text="0.0" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="0">
+                <GridPane.margin>
+                  <Insets right="5.0" />
+                </GridPane.margin>
+              </Label>
+              <Label text="%key.AreaUnit" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+            </children>
+            <columnConstraints>
+              <ColumnConstraints hgrow="SOMETIMES" minWidth="90.0" prefWidth="100.0" />
+              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            </columnConstraints>
+            <rowConstraints>
+              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            </rowConstraints>
+          </GridPane>
+          <GridPane minWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
+            <children>
+              <ToggleButton fx:id="DeadWood" mnemonicParsing="false" onAction="#listenGraphButtons" prefWidth="90.0" text="%key.deadwood" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                           <tooltip>
+                              <Tooltip text="%key.DeadWoodTip" />
+                           </tooltip></ToggleButton>
+              <Label fx:id="jDeadWoodValue" text="0.0" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="0">
+                <GridPane.margin>
+                  <Insets right="5.0" />
+                </GridPane.margin>
+              </Label>
+              <Label text="%key.DeadWoodUnit" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+            </children>
+            <columnConstraints>
+              <ColumnConstraints hgrow="SOMETIMES" minWidth="90.0" prefWidth="100.0" />
+              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            </columnConstraints>
+            <rowConstraints>
+              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            </rowConstraints>
+          </GridPane>
+          <GridPane minWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
+            <columnConstraints>
+              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            </columnConstraints>
+            <rowConstraints>
+              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            </rowConstraints>
+          </GridPane>
+        </children>
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+      </GridPane>
+        <Label layoutX="32.0" layoutY="179.0" text="%key.woodremovals" />
+      <GridPane layoutX="8.0" layoutY="7.0" maxWidth="1.7976931348623157E308" styleClass="panel_white" vgap="5.0">
+        <children>
+          <GridPane minWidth="200.0" GridPane.columnIndex="0" GridPane.rowIndex="0">
+            <children>
+              <ToggleButton fx:id="FFarea" mnemonicParsing="false" onAction="#listenGraphButtons" prefWidth="90.0" text="%key.ffarea" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                           <tooltip>
+                              <Tooltip text="%key.FFareaTip" />
+                           </tooltip></ToggleButton>
+              <Label fx:id="jFFellAreaValue" text="0.0" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="0">
+                <GridPane.margin>
+                  <Insets right="5.0" />
+                </GridPane.margin>
+              </Label>
+              <Label text="%key.FFareaUnit" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+            </children>
+            <columnConstraints>
+              <ColumnConstraints hgrow="SOMETIMES" minWidth="90.0" prefWidth="100.0" />
+              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            </columnConstraints>
+            <rowConstraints>
+              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            </rowConstraints>
+          </GridPane>
+          <GridPane minWidth="200.0" GridPane.columnIndex="0" GridPane.rowIndex="1">
+            <children>
+              <ToggleButton fx:id="PotentFellVol" mnemonicParsing="false" onAction="#listenGraphButtons" prefWidth="90.0" text="%key.pfvolume" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                           <tooltip>
+                              <Tooltip text="%key.PotentFellVolTip" />
+                           </tooltip></ToggleButton>
+              <Label fx:id="jFellVolumeValue" text="0.0" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="0">
+                <GridPane.margin>
+                  <Insets right="5.0" />
+                </GridPane.margin>
+              </Label>
+              <Label text="%key.PotentFellVolUnit" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+            </children>
+            <columnConstraints>
+              <ColumnConstraints hgrow="SOMETIMES" minWidth="90.0" prefWidth="100.0" />
+              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            </columnConstraints>
+            <rowConstraints>
+              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            </rowConstraints>
+          </GridPane>
+          <GridPane minWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="0">
+            <children>
+              <ToggleButton fx:id="FelRems" mnemonicParsing="false" onAction="#listenGraphButtons" prefWidth="90.0" text="%key.ffvolume" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                           <tooltip>
+                              <Tooltip text="%key.FelRemsTip" />
+                           </tooltip></ToggleButton>
+              <Label fx:id="jFellRemsValue" text="0.0" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="0">
+                <GridPane.margin>
+                  <Insets right="5.0" />
+                </GridPane.margin>
+              </Label>
+              <Label text="%key.FelRemsUnit" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+            </children>
+            <columnConstraints>
+              <ColumnConstraints hgrow="SOMETIMES" minWidth="90.0" prefWidth="100.0" />
+              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            </columnConstraints>
+            <rowConstraints>
+              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            </rowConstraints>
+          </GridPane>
+          <GridPane minWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <children>
+              <ToggleButton fx:id="ThinArea" mnemonicParsing="false" onAction="#listenGraphButtons" prefWidth="90.0" text="%key.thinarea" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                           <tooltip>
+                              <Tooltip text="%key.ThinAreaTip" />
+                           </tooltip></ToggleButton>
+              <Label fx:id="jThinAreaValue" text="0.0" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="0">
+                <GridPane.margin>
+                  <Insets right="5.0" />
+                </GridPane.margin>
+              </Label>
+              <Label text="%key.ThinAreaUnit" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+            </children>
+            <columnConstraints>
+              <ColumnConstraints hgrow="SOMETIMES" minWidth="90.0" prefWidth="100.0" />
+              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            </columnConstraints>
+            <rowConstraints>
+              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            </rowConstraints>
+          </GridPane>
+          <GridPane minWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="0">
+            <children>
+              <ToggleButton fx:id="PotentFellArea" mnemonicParsing="false" onAction="#listenGraphButtons" prefWidth="90.0" text="%key.pfarea" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                           <tooltip>
+                              <Tooltip text="%key.PotentFellAreaTip" />
+                           </tooltip></ToggleButton>
+              <Label fx:id="jFellAreaValue" text="0.0" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="0">
+                <GridPane.margin>
+                  <Insets right="5.0" />
+                </GridPane.margin>
+              </Label>
+              <Label text="%key.PotentFellAreaUnit" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+            </children>
+            <columnConstraints>
+              <ColumnConstraints hgrow="SOMETIMES" minWidth="90.0" prefWidth="100.0" />
+              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            </columnConstraints>
+            <rowConstraints>
+              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            </rowConstraints>
+          </GridPane>
+          <GridPane minWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
+            <children>
+              <ToggleButton fx:id="ThinRems" mnemonicParsing="false" onAction="#listenGraphButtons" prefWidth="90.0" text="%key.thinvolume" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                           <tooltip>
+                              <Tooltip text="%key.ThinRemsTip" />
+                           </tooltip></ToggleButton>
+              <Label fx:id="jThinRemsValue" text="0.0" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="0">
+                <GridPane.margin>
+                  <Insets right="5.0" />
+                </GridPane.margin>
+              </Label>
+              <Label text="%key.ThinRemsUnit" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+            </children>
+            <columnConstraints>
+              <ColumnConstraints hgrow="SOMETIMES" minWidth="90.0" prefWidth="100.0" />
+              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            </columnConstraints>
+            <rowConstraints>
+              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            </rowConstraints>
+          </GridPane>
+        </children>
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+      </GridPane>
+        <Label layoutX="32.0" layoutY="278.0" text="%key.carbonintrees" />
+      <GridPane layoutX="8.0" layoutY="7.0" styleClass="panel_white">
+        <children>
+          <GridPane minWidth="200.0" GridPane.columnIndex="0" GridPane.rowIndex="0">
+            <children>
+              <ToggleButton fx:id="Branches" mnemonicParsing="false" onAction="#listenGraphButtons" prefWidth="90.0" text="%key.branches" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                           <tooltip>
+                              <Tooltip text="%key.BranchesTip" />
+                           </tooltip></ToggleButton>
+              <Label fx:id="jBranchesValue" text="0.0" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="0">
+                <GridPane.margin>
+                  <Insets right="5.0" />
+                </GridPane.margin>
+              </Label>
+              <Label id="branchlabel" text="%key.BranchesUnit" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+            </children>
+            <columnConstraints>
+              <ColumnConstraints hgrow="SOMETIMES" minWidth="90.0" prefWidth="100.0" />
+              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            </columnConstraints>
+            <rowConstraints>
+              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            </rowConstraints>
+          </GridPane>
+          <GridPane minWidth="200.0" GridPane.columnIndex="0" GridPane.rowIndex="1">
+            <children>
+              <ToggleButton fx:id="Leaves" mnemonicParsing="false" onAction="#listenGraphButtons" prefWidth="90.0" text="%key.foliage" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                           <tooltip>
+                              <Tooltip text="%key.LeavesTip" />
+                           </tooltip></ToggleButton>
+              <Label fx:id="jLeavesValue" text="0.0" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="0">
+                <GridPane.margin>
+                  <Insets right="5.0" />
+                </GridPane.margin>
+              </Label>
+              <Label id="leavelabel" text="%key.LeavesUnit" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+            </children>
+            <columnConstraints>
+              <ColumnConstraints hgrow="SOMETIMES" minWidth="90.0" prefWidth="100.0" />
+              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            </columnConstraints>
+            <rowConstraints>
+              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            </rowConstraints>
+          </GridPane>
+          <GridPane minWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="0">
+            <children>
+              <ToggleButton fx:id="CRoots" mnemonicParsing="false" onAction="#listenGraphButtons" prefWidth="90.0" text="%key.coarseroots" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                           <tooltip>
+                              <Tooltip text="%key.CRootsTip" />
+                           </tooltip></ToggleButton>
+              <Label fx:id="jCRootsValue" text="0.0" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="0">
+                <GridPane.margin>
+                  <Insets right="5.0" />
+                </GridPane.margin>
+              </Label>
+              <Label id="crootslabel" text="%key.CRootsUnit" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+            </children>
+            <columnConstraints>
+              <ColumnConstraints hgrow="SOMETIMES" minWidth="90.0" prefWidth="100.0" />
+              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            </columnConstraints>
+            <rowConstraints>
+              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            </rowConstraints>
+          </GridPane>
+          <GridPane minWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <children>
+              <ToggleButton fx:id="Stem" mnemonicParsing="false" onAction="#listenGraphButtons" prefWidth="90.0" text="%key.stem" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                           <tooltip>
+                              <Tooltip text="%key.StemTip" />
+                           </tooltip></ToggleButton>
+              <Label fx:id="jStemValue" text="0.0" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="0">
+                <GridPane.margin>
+                  <Insets right="5.0" />
+                </GridPane.margin>
+              </Label>
+              <Label id="stemlabel" text="%key.StemUnit" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+            </children>
+            <columnConstraints>
+              <ColumnConstraints hgrow="SOMETIMES" minWidth="90.0" prefWidth="100.0" />
+              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            </columnConstraints>
+            <rowConstraints>
+              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            </rowConstraints>
+          </GridPane>
+          <GridPane minWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="0">
+            <children>
+              <ToggleButton fx:id="FRoots" mnemonicParsing="false" onAction="#listenGraphButtons" prefWidth="90.0" text="%key.fineroots" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                           <tooltip>
+                              <Tooltip text="%key.FRootsTip" />
+                           </tooltip></ToggleButton>
+              <Label fx:id="jFRootsValue" text="0.0" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="0">
+                <GridPane.margin>
+                  <Insets right="5.0" />
+                </GridPane.margin>
+              </Label>
+              <Label id="frootslabel" text="%key.FRootsUnit" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+            </children>
+            <columnConstraints>
+              <ColumnConstraints hgrow="SOMETIMES" minWidth="90.0" prefWidth="100.0" />
+              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            </columnConstraints>
+            <rowConstraints>
+              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            </rowConstraints>
+          </GridPane>
+          <GridPane minWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
+            <children>
+              <ToggleButton fx:id="tCarbon" mnemonicParsing="false" onAction="#listenGraphButtons" prefWidth="90.0" text="%key.total" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                           <tooltip>
+                              <Tooltip text="%key.tCarbonTip" />
+                           </tooltip></ToggleButton>
+              <Label fx:id="jTotalValue" text="0.0" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="0">
+                <GridPane.margin>
+                  <Insets right="5.0" />
+                </GridPane.margin>
+              </Label>
+              <Label id="tcarbonlabel" text="%key.tCarbonUnit" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+            </children>
+            <columnConstraints>
+              <ColumnConstraints hgrow="SOMETIMES" minWidth="90.0" prefWidth="100.0" />
+              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            </columnConstraints>
+            <rowConstraints>
+              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            </rowConstraints>
+          </GridPane>
+        </children>
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+      </GridPane>
+        <Label layoutX="27.0" layoutY="380.0" text="%key.carboninsoil" />
+      <GridPane layoutX="31.0" layoutY="408.0" styleClass="panel_white">
+        <children>
+          <GridPane minWidth="200.0" GridPane.columnIndex="0" GridPane.rowIndex="0">
+            <children>
+              <ToggleButton fx:id="CEL" mnemonicParsing="false" onAction="#listenGraphButtons" prefWidth="90.0" text="%key.cel" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                           <tooltip>
+                              <Tooltip text="%key.CELTip" />
+                           </tooltip></ToggleButton>
+              <Label fx:id="jCelValue" text="0.0" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="0">
+                <GridPane.margin>
+                  <Insets right="5.0" />
+                </GridPane.margin>
+              </Label>
+              <Label id="cellabel" text="%key.CELUnit" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+            </children>
+            <columnConstraints>
+              <ColumnConstraints hgrow="SOMETIMES" minWidth="90.0" prefWidth="100.0" />
+              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            </columnConstraints>
+            <rowConstraints>
+              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            </rowConstraints>
+          </GridPane>
+          <GridPane minWidth="200.0" GridPane.columnIndex="0" GridPane.rowIndex="1">
+            <children>
+              <ToggleButton fx:id="CWL" mnemonicParsing="false" onAction="#listenGraphButtons" prefWidth="90.0" text="%key.cwl" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                           <tooltip>
+                              <Tooltip text="%key.CWLTip" />
+                           </tooltip></ToggleButton>
+              <Label fx:id="jCwlValue" text="0.0" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="0">
+                <GridPane.margin>
+                  <Insets right="5.0" />
+                </GridPane.margin>
+              </Label>
+              <Label id="cwllabel" text="%key.CWLUnit" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+            </children>
+            <columnConstraints>
+              <ColumnConstraints hgrow="SOMETIMES" minWidth="90.0" prefWidth="100.0" />
+              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            </columnConstraints>
+            <rowConstraints>
+              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            </rowConstraints>
+          </GridPane>
+          <GridPane minWidth="200.0" GridPane.columnIndex="0" GridPane.rowIndex="2">
+            <children>
+              <ToggleButton fx:id="HUM2" mnemonicParsing="false" onAction="#listenGraphButtons" prefWidth="90.0" text="%key.hum2" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                           <tooltip>
+                              <Tooltip text="%key.HUM2Tip" />
+                           </tooltip></ToggleButton>
+              <Label fx:id="jHum2Value" text="0.0" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="0">
+                <GridPane.margin>
+                  <Insets right="5.0" />
+                </GridPane.margin>
+              </Label>
+              <Label id="hum2label" text="%key.HUM2Unit" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+            </children>
+            <columnConstraints>
+              <ColumnConstraints hgrow="SOMETIMES" minWidth="90.0" prefWidth="100.0" />
+              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            </columnConstraints>
+            <rowConstraints>
+              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            </rowConstraints>
+          </GridPane>
+          <GridPane minWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="0">
+            <children>
+              <ToggleButton fx:id="COUT" mnemonicParsing="false" onAction="#listenGraphButtons" prefWidth="90.0" text="%key.cout" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                           <tooltip>
+                              <Tooltip text="%key.COUTTip" />
+                           </tooltip></ToggleButton>
+              <Label fx:id="jCoutValue" text="0.0" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="0">
+                <GridPane.margin>
+                  <Insets right="5.0" />
+                </GridPane.margin>
+              </Label>
+              <Label id="coutlabel" text="%key.COUTUnit" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+            </children>
+            <columnConstraints>
+              <ColumnConstraints hgrow="SOMETIMES" minWidth="90.0" prefWidth="100.0" />
+              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            </columnConstraints>
+            <rowConstraints>
+              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            </rowConstraints>
+          </GridPane>
+          <GridPane minWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <children>
+              <ToggleButton fx:id="FWL" mnemonicParsing="false" onAction="#listenGraphButtons" prefWidth="90.0" text="%key.fwl" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                           <tooltip>
+                              <Tooltip text="%key.FWLTip" />
+                           </tooltip></ToggleButton>
+              <Label fx:id="jFwlValue" text="0.0" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="0">
+                <GridPane.margin>
+                  <Insets right="5.0" />
+                </GridPane.margin>
+              </Label>
+              <Label id="fwllabel" text="%key.FWLUnit" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+            </children>
+            <columnConstraints>
+              <ColumnConstraints hgrow="SOMETIMES" minWidth="90.0" prefWidth="100.0" />
+              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            </columnConstraints>
+            <rowConstraints>
+              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            </rowConstraints>
+          </GridPane>
+          <GridPane minWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <children>
+              <ToggleButton fx:id="LIG" mnemonicParsing="false" onAction="#listenGraphButtons" prefWidth="90.0" text="%key.lig" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                           <tooltip>
+                              <Tooltip text="%key.LIGTip" />
+                           </tooltip></ToggleButton>
+              <Label fx:id="jLigValue" text="0.0" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="0">
+                <GridPane.margin>
+                  <Insets right="5.0" />
+                </GridPane.margin>
+              </Label>
+              <Label id="liglabel" text="%key.LIGUnit" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+            </children>
+            <columnConstraints>
+              <ColumnConstraints hgrow="SOMETIMES" minWidth="90.0" prefWidth="100.0" />
+              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            </columnConstraints>
+            <rowConstraints>
+              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            </rowConstraints>
+          </GridPane>
+          <GridPane minWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="0">
+            <children>
+              <ToggleButton fx:id="CSoil" mnemonicParsing="false" onAction="#listenGraphButtons" prefWidth="90.0" text="%key.csoil" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                           <tooltip>
+                              <Tooltip text="%key.CSoilTip" />
+                           </tooltip></ToggleButton>
+              <Label fx:id="jCSoilValue" text="0.0" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="0">
+                <GridPane.margin>
+                  <Insets right="5.0" />
+                </GridPane.margin>
+              </Label>
+              <Label id="csoillabel" text="%key.CSoilUnit" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+            </children>
+            <columnConstraints>
+              <ColumnConstraints hgrow="SOMETIMES" minWidth="90.0" prefWidth="100.0" />
+              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            </columnConstraints>
+            <rowConstraints>
+              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            </rowConstraints>
+          </GridPane>
+          <GridPane minWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
+            <children>
+              <ToggleButton fx:id="HUM1" mnemonicParsing="false" onAction="#listenGraphButtons" prefWidth="90.0" text="%key.hum1" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                           <tooltip>
+                              <Tooltip text="%key.HUM1Tip" />
+                           </tooltip>
+                        </ToggleButton>
+              <Label fx:id="jHum1Value" text="0.0" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="0">
+                <GridPane.margin>
+                  <Insets right="5.0" />
+                </GridPane.margin>
+              </Label>
+              <Label id="hum1label" text="%key.HUM1Unit" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+            </children>
+            <columnConstraints>
+              <ColumnConstraints hgrow="SOMETIMES" minWidth="90.0" prefWidth="100.0" />
+              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            </columnConstraints>
+            <rowConstraints>
+              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            </rowConstraints>
+          </GridPane>
+          <GridPane minWidth="200.0" GridPane.columnIndex="0" GridPane.rowIndex="3">
+            <children>
+              <ToggleButton fx:id="SOL" mnemonicParsing="false" onAction="#listenGraphButtons" prefWidth="90.0" text="%key.sol" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                           <tooltip>
+                              <Tooltip text="%key.SOLTip" />
+                           </tooltip></ToggleButton>
+              <Label fx:id="jSolValue" text="0.0" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="0">
+                <GridPane.margin>
+                  <Insets right="5.0" />
+                </GridPane.margin>
+              </Label>
+              <Label id="sollabel" text="%key.SOLUnit" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+            </children>
+            <columnConstraints>
+              <ColumnConstraints hgrow="SOMETIMES" minWidth="90.0" prefWidth="100.0" />
+              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            </columnConstraints>
+            <rowConstraints>
+              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            </rowConstraints>
+          </GridPane>
+          <GridPane minWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
+            <children>
+              <ToggleButton fx:id="NWL" mnemonicParsing="false" onAction="#listenGraphButtons" prefWidth="90.0" text="%key.nwl" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                           <tooltip>
+                              <Tooltip text="%key.NWLTip" />
+                           </tooltip></ToggleButton>
+              <Label fx:id="jNwlValue" text="0.0" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="0">
+                <GridPane.margin>
+                  <Insets right="5.0" />
+                </GridPane.margin>
+              </Label>
+              <Label id="nwllabel" text="%key.NWLUnit" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+            </children>
+            <columnConstraints>
+              <ColumnConstraints hgrow="SOMETIMES" minWidth="90.0" prefWidth="100.0" />
+              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            </columnConstraints>
+            <rowConstraints>
+              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            </rowConstraints>
+          </GridPane>
+        </children>
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+      </GridPane>
+         </children>
+      </VBox>
+   </children>
+</VBox>

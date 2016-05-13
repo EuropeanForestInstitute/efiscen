@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Copyright (C) 2016 European Forest Institute
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-->
+
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.collections.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+
+<AnchorPane id="AnchorPane" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+  <children>
+    <TabPane fx:id="all" layoutX="28.0" layoutY="0.0" tabClosingPolicy="UNAVAILABLE">
+      <tabs>
+        <Tab text="%key.files">
+          <content>
+            <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="317.0" prefWidth="470.0">
+              <children>
+                <TextField fx:id="filepath" layoutX="14.0" layoutY="82.0" prefWidth="133.0" />
+                <Label layoutX="14.0" layoutY="68.0" text="%key.outputpath" />
+                <TextField fx:id="filename" layoutX="14.0" layoutY="38.0" prefWidth="133.0" />
+                <Label layoutX="14.0" layoutY="24.0" text="%key.fileprefix" />
+                <Button fx:id="filesave" layoutX="14.0" layoutY="121.0" mnemonicParsing="false" onAction="#saveFiles" text="%key.save" />
+                <Label fx:id="warning2" layoutX="67.0" layoutY="124.0" text="warning2" textFill="RED" visible="false" />
+                <Button fx:id="choose" layoutX="155.0" layoutY="82.0" mnemonicParsing="false" onAction="#choosePath" prefWidth="73.0" text="%key.choose" />
+                <TreeView fx:id="outputselection" layoutX="235.0" layoutY="7.0" prefHeight="310.0" prefWidth="228.0" />
+                        <Label fx:id="filesaved" layoutX="67.0" layoutY="125.0" text="%key.saved" textFill="#005fff" visible="false" />
+                        <ProgressIndicator fx:id="fileprogress" layoutX="93.0" layoutY="121.0" prefHeight="24.0" prefWidth="24.0" visible="false" />
+              </children>
+            </AnchorPane>
+          </content>
+        </Tab>
+        <Tab text="%key.database">
+          <content>
+            <AnchorPane id="Content">
+              <children>
+                        <HBox layoutX="11.0" layoutY="7.0" spacing="25.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <VBox layoutX="11.0" layoutY="22.0" spacing="10.0">
+                                 <children>
+                                    <VBox layoutX="14.0" layoutY="22.0">
+                                       <children>
+                                  <Label layoutX="14.0" layoutY="22.0" text="%key.username" />
+                                  <TextField fx:id="username" layoutX="14.0" layoutY="36.0" prefWidth="134.0" />
+                                       </children>
+                                    </VBox>
+                                    <VBox layoutX="13.0" layoutY="63.0">
+                                       <children>
+                                  <Label layoutX="14.0" layoutY="63.0" text="%key.password" />
+                                  <TextField fx:id="password" layoutX="13.0" layoutY="77.0" prefWidth="135.0" />
+                                       </children>
+                                    </VBox>
+                                    <VBox layoutX="11.0" layoutY="107.0">
+                                       <children>
+                                  <Label layoutX="14.0" layoutY="107.0" text="%key.dbaddress" />
+                                  <TextField fx:id="address" layoutX="11.0" layoutY="121.0" prefWidth="200.0" />
+                                       </children>
+                                    </VBox>
+                                    <HBox spacing="15.0">
+                                       <children>
+                                          <VBox>
+                                             <children>
+                                                <Label text="%key.port" />
+                                                <TextField fx:id="port" />
+                                             </children>
+                                          </VBox>
+                                          <VBox>
+                                             <children>
+                                                <Label text="%key.database" />
+                                                <TextField fx:id="database" />
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </HBox>
+                                    <HBox spacing="10.0">
+                                       <children>
+                                          <VBox>
+                                             <children>
+                                        <Label text="%key.sessionid" />
+                                        <TextField fx:id="sid" prefWidth="56.0" />
+                                             </children>
+                                          </VBox>
+                                          <VBox>
+                                             <children>
+                                        <Label text="%key.iso" />
+                                        <TextField id="ciso" fx:id="iso" prefWidth="56.0" />
+                                             </children>
+                                          </VBox>
+                                          <VBox>
+                                             <children>
+                                                <Label text="%key.projectid" />
+                                                <TextField fx:id="pid" prefHeight="25.0" prefWidth="58.0" />
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </HBox>
+                            <ChoiceBox fx:id="type" prefWidth="120.0">
+                              <items>
+                                <FXCollections fx:factory="observableArrayList" />
+                              </items>
+                            </ChoiceBox>
+                            <Button fx:id="savedatabase" mnemonicParsing="false" onAction="#saveDatabase" text="%key.save" />
+                                 </children>
+                              </VBox>
+                      <TreeView id="outputselection" fx:id="databaseTree" layoutX="235.0" layoutY="7.0" prefHeight="310.0" prefWidth="228.0" />
+                           </children>
+                        </HBox>
+                <Label fx:id="warning" layoutX="70.0" layoutY="240.0" text="warning" textFill="RED" visible="false" />
+                        <Label fx:id="dbsaved" layoutX="71.0" layoutY="242.0" text="%key.saved" textFill="#005fff" visible="false" />
+                        <ProgressIndicator fx:id="dbprogress" layoutX="69.0" layoutY="239.0" prefHeight="24.0" prefWidth="24.0" visible="false" />
+              </children>
+                     <padding>
+                        <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
+                     </padding>
+            </AnchorPane>
+          </content>
+        </Tab>
+      </tabs>
+    </TabPane>
+  </children>
+</AnchorPane>

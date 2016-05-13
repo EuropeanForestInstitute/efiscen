@@ -1,0 +1,1185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<?scenebuilder-preview-i18n-resource ../localization/language_en.properties?>
+
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="839.0000168945262" prefWidth="983.0" xmlns:fx="http://javafx.com/fxml" fx:controller="int_.efi.efiscen.guiFX.FrameController">
+  <children>
+    <Label layoutX="329.0" layoutY="37.0" text="%key.steps" />
+    <TextField fx:id="steps" layoutX="382.0" layoutY="34.0" onKeyTyped="#stepsTyped" prefWidth="35.0" />
+    <Button layoutX="448.0" layoutY="34.0" mnemonicParsing="false" onAction="#setSteps" prefWidth="61.0" text="%key.run" />
+    <ToolBar minHeight="14.0" prefHeight="25.0" prefWidth="983.0">
+      <items>
+        <MenuButton mnemonicParsing="false" text="%key.file">
+          <items>
+            <MenuItem mnemonicParsing="false" text="%key.newwindow" />
+            <MenuItem mnemonicParsing="false" onAction="#loadFiles" text="%key.loadfiles" />
+            <MenuItem mnemonicParsing="false" text="%key.output" />
+            <MenuItem mnemonicParsing="false" text="%key.exit" />
+          </items>
+        </MenuButton>
+        <Button mnemonicParsing="false" text="%key.settings" />
+        <Button mnemonicParsing="false" text="%key.about" />
+      </items>
+    </ToolBar>
+    <Rectangle arcHeight="15.0" arcWidth="15.0" height="343.0" layoutX="9.0" layoutY="34.0" stroke="BLACK" strokeType="INSIDE" width="153.0">
+      <fill>
+        <Color blue="0.976" green="0.969" red="0.976" fx:id="x1" />
+      </fill>
+    </Rectangle>
+    <Rectangle arcHeight="15.0" arcWidth="15.0" fill="$x1" height="149.0" layoutX="9.0" layoutY="388.0" stroke="BLACK" strokeType="INSIDE" width="153.0" />
+    <TabPane layoutX="176.0" layoutY="59.0" prefHeight="777.0" prefWidth="802.0000999999975" tabClosingPolicy="UNAVAILABLE">
+      <tabs>
+        <Tab text="%key.total">
+          <content>
+            <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="653.0" prefWidth="646.0000999999975">
+              <children>
+                <LineChart id="LineChartNxN" minHeight="121.0" prefHeight="176.0" prefWidth="789.0">
+                  <xAxis>
+                    <NumberAxis side="BOTTOM" />
+                  </xAxis>
+                  <yAxis>
+                    <NumberAxis side="LEFT" />
+                  </yAxis>
+                </LineChart>
+                <AnchorPane id="AnchorPane" layoutY="186.0" minHeight="555.0" prefHeight="555.0">
+                  <children>
+                    <Rectangle arcHeight="15.0" arcWidth="15.0" height="548.0" stroke="BLACK" strokeType="INSIDE" width="789.0">
+                      <fill>
+                        <Color blue="0.800" green="1.000" red="0.816" fx:id="x3" />
+                      </fill>
+                    </Rectangle>
+                    <AnchorPane id="AnchorPane" layoutX="14.0" layoutY="198.0" />
+                    <AnchorPane id="AnchorPane" layoutX="24.0" layoutY="208.0" />
+                    <AnchorPane id="AnchorPane" layoutX="23.0" layoutY="404.0" minHeight="127.0" prefHeight="127.0">
+                      <children>
+                        <Rectangle arcHeight="15.0" arcWidth="15.0" height="126.99997792968497" layoutX="-10.0" layoutY="1.0" stroke="BLACK" strokeType="INSIDE" width="764.0001220703125">
+                          <fill>
+                            <Color blue="1.000" green="0.976" red="0.800" fx:id="x2" />
+                          </fill>
+                        </Rectangle>
+                        <GridPane layoutX="8.0" layoutY="4.0" prefWidth="738.0">
+                          <children>
+                            <GridPane GridPane.columnIndex="0" GridPane.rowIndex="0">
+                              <children>
+                                <Button mnemonicParsing="false" text="%key.cel" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                                <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                              </children>
+                              <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              </columnConstraints>
+                              <rowConstraints>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              </rowConstraints>
+                            </GridPane>
+                            <GridPane prefWidth="246.0" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                              <children>
+                                <Button mnemonicParsing="false" text="%key.cwl" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                                <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                              </children>
+                              <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              </columnConstraints>
+                              <rowConstraints>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              </rowConstraints>
+                            </GridPane>
+                            <GridPane GridPane.columnIndex="0" GridPane.rowIndex="2">
+                              <children>
+                                <Button mnemonicParsing="false" text="%key.hum2" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                                <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                              </children>
+                              <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              </columnConstraints>
+                              <rowConstraints>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              </rowConstraints>
+                            </GridPane>
+                            <GridPane GridPane.columnIndex="1" GridPane.rowIndex="0">
+                              <children>
+                                <Button mnemonicParsing="false" text="%key.cout" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                                <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                              </children>
+                              <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              </columnConstraints>
+                              <rowConstraints>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              </rowConstraints>
+                            </GridPane>
+                            <GridPane GridPane.columnIndex="1" GridPane.rowIndex="1">
+                              <children>
+                                <Button mnemonicParsing="false" text="%key.fwl" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                                <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                              </children>
+                              <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              </columnConstraints>
+                              <rowConstraints>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              </rowConstraints>
+                            </GridPane>
+                            <GridPane GridPane.columnIndex="1" GridPane.rowIndex="2">
+                              <children>
+                                <Button mnemonicParsing="false" text="%key.lig" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                                <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                              </children>
+                              <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              </columnConstraints>
+                              <rowConstraints>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              </rowConstraints>
+                            </GridPane>
+                            <GridPane GridPane.columnIndex="2" GridPane.rowIndex="0">
+                              <children>
+                                <Button mnemonicParsing="false" text="%key.csoil" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                                <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                              </children>
+                              <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              </columnConstraints>
+                              <rowConstraints>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              </rowConstraints>
+                            </GridPane>
+                            <GridPane GridPane.columnIndex="2" GridPane.rowIndex="1">
+                              <children>
+                                <Button mnemonicParsing="false" text="%key.hum1" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                                <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                              </children>
+                              <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              </columnConstraints>
+                              <rowConstraints>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              </rowConstraints>
+                            </GridPane>
+                            <GridPane GridPane.columnIndex="0" GridPane.rowIndex="3">
+                              <children>
+                                <Button mnemonicParsing="false" text="%key.sol" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                                <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                              </children>
+                              <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              </columnConstraints>
+                              <rowConstraints>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              </rowConstraints>
+                            </GridPane>
+                            <GridPane prefWidth="246.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                              <children>
+                                <Button mnemonicParsing="false" text="%key.nwl" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                                <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                              </children>
+                              <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              </columnConstraints>
+                              <rowConstraints>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              </rowConstraints>
+                            </GridPane>
+                          </children>
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                        </GridPane>
+                      </children>
+                    </AnchorPane>
+                    <AnchorPane id="AnchorPane" layoutX="156.0" layoutY="71.0" />
+                    <Label layoutX="32.0" layoutY="17.0" text="%key.matrices" />
+                    <Label layoutX="103.0" layoutY="17.0" text="Label" />
+                    <AnchorPane id="AnchorPane" layoutX="24.0" layoutY="65.0" minHeight="104.0" prefHeight="104.0">
+                      <children>
+                        <Rectangle arcHeight="15.0" arcWidth="15.0" fill="$x2" height="104.0" layoutX="-10.0" stroke="BLACK" strokeType="INSIDE" width="764.0" />
+                        <GridPane layoutX="8.0" layoutY="7.0" prefWidth="738.0">
+                          <children>
+                            <GridPane GridPane.columnIndex="0" GridPane.rowIndex="0">
+                              <children>
+                                <Button mnemonicParsing="false" styleClass="graphbutton" text="%key.grstock" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                                <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                                <Label text="%key.grstocklabel" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+                              </children>
+                              <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              </columnConstraints>
+                              <rowConstraints>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              </rowConstraints>
+                            </GridPane>
+                            <GridPane prefWidth="246.0" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                              <children>
+                                <Button mnemonicParsing="false" text="%key.avrgrstock" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                                <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                                <Label text="%key.avrgrstocklabel" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+                              </children>
+                              <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              </columnConstraints>
+                              <rowConstraints>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              </rowConstraints>
+                            </GridPane>
+                            <GridPane GridPane.columnIndex="0" GridPane.rowIndex="2">
+                              <children>
+                                <Button mnemonicParsing="false" text="%key.increment" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                                <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                                <Label text="%key.incrementlabel" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+                              </children>
+                              <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              </columnConstraints>
+                              <rowConstraints>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              </rowConstraints>
+                            </GridPane>
+                            <GridPane GridPane.columnIndex="1" GridPane.rowIndex="0">
+                              <children>
+                                <Button mnemonicParsing="false" text="%key.afforfund" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                                <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                                <Label text="%key.afforfundlabel" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+                              </children>
+                              <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              </columnConstraints>
+                              <rowConstraints>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              </rowConstraints>
+                            </GridPane>
+                            <GridPane GridPane.columnIndex="1" GridPane.rowIndex="1">
+                              <children>
+                                <Button mnemonicParsing="false" text="%key.barearea" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                                <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                                <Label text="%key.barearealabel" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+                              </children>
+                              <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              </columnConstraints>
+                              <rowConstraints>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              </rowConstraints>
+                            </GridPane>
+                            <GridPane GridPane.columnIndex="1" GridPane.rowIndex="2">
+                              <children>
+                                <Button mnemonicParsing="false" text="%key.natmortality" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                                <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                                <Label text="%key.natmortalitylabel" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+                              </children>
+                              <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              </columnConstraints>
+                              <rowConstraints>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              </rowConstraints>
+                            </GridPane>
+                            <GridPane GridPane.columnIndex="2" GridPane.rowIndex="0">
+                              <children>
+                                <Button mnemonicParsing="false" text="%key.area" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                                <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                                <Label text="%key.arealabel" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+                              </children>
+                              <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              </columnConstraints>
+                              <rowConstraints>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              </rowConstraints>
+                            </GridPane>
+                            <GridPane GridPane.columnIndex="2" GridPane.rowIndex="1">
+                              <children>
+                                <Button mnemonicParsing="false" text="%key.deadwood" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                                <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                                <Label text="%key.deadwoodlabel" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+                              </children>
+                              <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              </columnConstraints>
+                              <rowConstraints>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              </rowConstraints>
+                            </GridPane>
+                            <GridPane GridPane.columnIndex="2" GridPane.rowIndex="2">
+                              <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              </columnConstraints>
+                              <rowConstraints>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              </rowConstraints>
+                            </GridPane>
+                          </children>
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                        </GridPane>
+                      </children>
+                    </AnchorPane>
+                    <Label layoutX="32.0" layoutY="42.0" text="%key.general" />
+                    <Label layoutX="32.0" layoutY="179.0" text="%key.woodremovals" />
+                    <Label layoutX="32.0" layoutY="278.0" text="%key.carbonintrees" />
+                    <AnchorPane id="AnchorPane" layoutX="24.0" layoutY="198.0" minHeight="72.0" prefHeight="72.0">
+                      <children>
+                        <Rectangle arcHeight="15.0" arcWidth="15.0" height="72.0" layoutX="-10.0" stroke="BLACK" strokeType="INSIDE" width="764.0">
+                          <fill>
+                            <Color blue="0.976" green="1.000" red="0.800" fx:id="x4" />
+                          </fill>
+                        </Rectangle>
+                        <GridPane layoutX="8.0" layoutY="7.0" prefWidth="738.0">
+                          <children>
+                            <GridPane GridPane.columnIndex="0" GridPane.rowIndex="0">
+                              <children>
+                                <Button mnemonicParsing="false" text="%key.ffarea" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                                <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                                <Label text="%key.ffarealabel" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+                              </children>
+                              <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              </columnConstraints>
+                              <rowConstraints>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              </rowConstraints>
+                            </GridPane>
+                            <GridPane prefWidth="246.0" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                              <children>
+                                <Button mnemonicParsing="false" text="%key.pfvolume" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                                <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                                <Label text="%key.pfvolumelabel" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+                              </children>
+                              <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              </columnConstraints>
+                              <rowConstraints>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              </rowConstraints>
+                            </GridPane>
+                            <GridPane GridPane.columnIndex="1" GridPane.rowIndex="0">
+                              <children>
+                                <Button mnemonicParsing="false" text="%key.ffvolume" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                                <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                                <Label text="%key.ffvolumelabel" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+                              </children>
+                              <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              </columnConstraints>
+                              <rowConstraints>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              </rowConstraints>
+                            </GridPane>
+                            <GridPane GridPane.columnIndex="1" GridPane.rowIndex="1">
+                              <children>
+                                <Button mnemonicParsing="false" text="%key.thinarea" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                                <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                                <Label text="%key.thinarealabel" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+                              </children>
+                              <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              </columnConstraints>
+                              <rowConstraints>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              </rowConstraints>
+                            </GridPane>
+                            <GridPane GridPane.columnIndex="2" GridPane.rowIndex="0">
+                              <children>
+                                <Button mnemonicParsing="false" text="%key.pfarea" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                                <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                                <Label text="%key.pfarealabel" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+                              </children>
+                              <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              </columnConstraints>
+                              <rowConstraints>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              </rowConstraints>
+                            </GridPane>
+                            <GridPane GridPane.columnIndex="2" GridPane.rowIndex="1">
+                              <children>
+                                <Button mnemonicParsing="false" text="%key.thinvolume" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                                <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                                <Label text="%key.thinvolumelabel" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+                              </children>
+                              <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              </columnConstraints>
+                              <rowConstraints>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              </rowConstraints>
+                            </GridPane>
+                          </children>
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                        </GridPane>
+                      </children>
+                    </AnchorPane>
+                    <AnchorPane id="AnchorPane" layoutX="24.0" layoutY="300.0" minHeight="72.0" prefHeight="72.0">
+                      <children>
+                        <Rectangle arcHeight="15.0" arcWidth="15.0" height="72.0" layoutX="-10.0" layoutY="1.0" stroke="BLACK" strokeType="INSIDE" width="764.0001220703125">
+                          <fill>
+                            <Color blue="0.929" green="1.000" red="0.800" fx:id="x5" />
+                          </fill>
+                        </Rectangle>
+                        <GridPane layoutX="8.0" layoutY="7.0" prefWidth="738.0">
+                          <children>
+                            <GridPane GridPane.columnIndex="0" GridPane.rowIndex="0">
+                              <children>
+                                <Button mnemonicParsing="false" text="%key.branches" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                                <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                              </children>
+                              <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              </columnConstraints>
+                              <rowConstraints>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              </rowConstraints>
+                            </GridPane>
+                            <GridPane prefWidth="246.0" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                              <children>
+                                <Button mnemonicParsing="false" text="%key.foliage" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                                <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                              </children>
+                              <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              </columnConstraints>
+                              <rowConstraints>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              </rowConstraints>
+                            </GridPane>
+                            <GridPane GridPane.columnIndex="1" GridPane.rowIndex="0">
+                              <children>
+                                <Button mnemonicParsing="false" text="%key.coarseroots" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                                <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                              </children>
+                              <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              </columnConstraints>
+                              <rowConstraints>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              </rowConstraints>
+                            </GridPane>
+                            <GridPane GridPane.columnIndex="1" GridPane.rowIndex="1">
+                              <children>
+                                <Button mnemonicParsing="false" text="%key.stem" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                                <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                              </children>
+                              <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              </columnConstraints>
+                              <rowConstraints>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              </rowConstraints>
+                            </GridPane>
+                            <GridPane GridPane.columnIndex="2" GridPane.rowIndex="0">
+                              <children>
+                                <Button mnemonicParsing="false" text="%key.fineroots" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                                <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                              </children>
+                              <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              </columnConstraints>
+                              <rowConstraints>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              </rowConstraints>
+                            </GridPane>
+                            <GridPane GridPane.columnIndex="2" GridPane.rowIndex="1">
+                              <children>
+                                <Button mnemonicParsing="false" text="%key.total" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                                <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                              </children>
+                              <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              </columnConstraints>
+                              <rowConstraints>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              </rowConstraints>
+                            </GridPane>
+                          </children>
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                        </GridPane>
+                      </children>
+                    </AnchorPane>
+                    <Label layoutX="27.0" layoutY="380.0" text="%key.carboninsoil" />
+                  </children>
+                </AnchorPane>
+              </children>
+            </AnchorPane>
+          </content>
+        </Tab>
+        <Tab text="%key.selected">
+          <content>
+            <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="653.0" prefWidth="646.0000999999975">
+              <children>
+                <LineChart id="LineChartNxN" minHeight="121.0" prefHeight="176.0" prefWidth="789.0">
+                  <xAxis>
+                    <NumberAxis side="BOTTOM" />
+                  </xAxis>
+                  <yAxis>
+                    <NumberAxis side="LEFT" />
+                  </yAxis>
+                </LineChart>
+                <AnchorPane id="AnchorPane" layoutY="186.0" minHeight="555.0" prefHeight="555.0">
+                  <children>
+                    <Rectangle arcHeight="15.0" arcWidth="15.0" fill="$x3" height="548.0" stroke="BLACK" strokeType="INSIDE" width="789.0" />
+                    <AnchorPane id="AnchorPane" layoutX="14.0" layoutY="198.0" />
+                    <AnchorPane id="AnchorPane" layoutX="24.0" layoutY="208.0" />
+                    <AnchorPane id="AnchorPane" layoutX="23.0" layoutY="404.0" minHeight="127.0" prefHeight="127.0">
+                      <children>
+                        <Rectangle arcHeight="15.0" arcWidth="15.0" fill="$x2" height="126.99997792968497" layoutX="-10.0" layoutY="1.0" stroke="BLACK" strokeType="INSIDE" width="764.0001220703125" />
+                        <GridPane layoutX="8.0" layoutY="4.0" prefWidth="738.0">
+                          <children>
+                            <GridPane GridPane.columnIndex="0" GridPane.rowIndex="0">
+                              <children>
+                                <Button mnemonicParsing="false" text="%key.cel" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                                <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                              </children>
+                              <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              </columnConstraints>
+                              <rowConstraints>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              </rowConstraints>
+                            </GridPane>
+                            <GridPane prefWidth="246.0" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                              <children>
+                                <Button mnemonicParsing="false" text="%key.cwl" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                                <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                              </children>
+                              <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              </columnConstraints>
+                              <rowConstraints>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              </rowConstraints>
+                            </GridPane>
+                            <GridPane GridPane.columnIndex="0" GridPane.rowIndex="2">
+                              <children>
+                                <Button mnemonicParsing="false" text="%key.hum2" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                                <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                              </children>
+                              <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              </columnConstraints>
+                              <rowConstraints>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              </rowConstraints>
+                            </GridPane>
+                            <GridPane GridPane.columnIndex="1" GridPane.rowIndex="0">
+                              <children>
+                                <Button mnemonicParsing="false" text="%key.cout" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                                <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                              </children>
+                              <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              </columnConstraints>
+                              <rowConstraints>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              </rowConstraints>
+                            </GridPane>
+                            <GridPane GridPane.columnIndex="1" GridPane.rowIndex="1">
+                              <children>
+                                <Button mnemonicParsing="false" text="%key.fwl" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                                <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                              </children>
+                              <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              </columnConstraints>
+                              <rowConstraints>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              </rowConstraints>
+                            </GridPane>
+                            <GridPane GridPane.columnIndex="1" GridPane.rowIndex="2">
+                              <children>
+                                <Button mnemonicParsing="false" text="%key.lig" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                                <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                              </children>
+                              <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              </columnConstraints>
+                              <rowConstraints>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              </rowConstraints>
+                            </GridPane>
+                            <GridPane GridPane.columnIndex="2" GridPane.rowIndex="0">
+                              <children>
+                                <Button mnemonicParsing="false" text="%key.csoil" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                                <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                              </children>
+                              <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              </columnConstraints>
+                              <rowConstraints>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              </rowConstraints>
+                            </GridPane>
+                            <GridPane GridPane.columnIndex="2" GridPane.rowIndex="1">
+                              <children>
+                                <Button mnemonicParsing="false" text="%key.hum1" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                                <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                              </children>
+                              <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              </columnConstraints>
+                              <rowConstraints>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              </rowConstraints>
+                            </GridPane>
+                            <GridPane GridPane.columnIndex="0" GridPane.rowIndex="3">
+                              <children>
+                                <Button mnemonicParsing="false" text="%key.sol" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                                <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                              </children>
+                              <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              </columnConstraints>
+                              <rowConstraints>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              </rowConstraints>
+                            </GridPane>
+                            <GridPane prefWidth="246.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                              <children>
+                                <Button mnemonicParsing="false" text="%key.nwl" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                                <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                              </children>
+                              <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              </columnConstraints>
+                              <rowConstraints>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              </rowConstraints>
+                            </GridPane>
+                          </children>
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                        </GridPane>
+                      </children>
+                    </AnchorPane>
+                    <AnchorPane id="AnchorPane" layoutX="156.0" layoutY="71.0" />
+                    <Label layoutX="32.0" layoutY="17.0" text="%key.matrices" />
+                    <Label layoutX="103.0" layoutY="17.0" text="Label" />
+                    <AnchorPane id="AnchorPane" layoutX="24.0" layoutY="65.0" minHeight="104.0" prefHeight="104.0">
+                      <children>
+                        <Rectangle arcHeight="15.0" arcWidth="15.0" fill="$x2" height="104.0" layoutX="-10.0" stroke="BLACK" strokeType="INSIDE" width="764.0" />
+                        <GridPane layoutX="8.0" layoutY="7.0" prefWidth="738.0">
+                          <children>
+                            <GridPane GridPane.columnIndex="0" GridPane.rowIndex="0">
+                              <children>
+                                <Button mnemonicParsing="false" styleClass="graphbutton" text="%key.grstock" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                                <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                                <Label text="%key.grstocklabel" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+                              </children>
+                              <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              </columnConstraints>
+                              <rowConstraints>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              </rowConstraints>
+                            </GridPane>
+                            <GridPane prefWidth="246.0" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                              <children>
+                                <Button mnemonicParsing="false" text="%key.avrgrstock" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                                <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                                <Label text="%key.avrgrstocklabel" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+                              </children>
+                              <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              </columnConstraints>
+                              <rowConstraints>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              </rowConstraints>
+                            </GridPane>
+                            <GridPane GridPane.columnIndex="0" GridPane.rowIndex="2">
+                              <children>
+                                <Button mnemonicParsing="false" text="%key.increment" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                                <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                                <Label text="%key.incrementlabel" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+                              </children>
+                              <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              </columnConstraints>
+                              <rowConstraints>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              </rowConstraints>
+                            </GridPane>
+                            <GridPane GridPane.columnIndex="1" GridPane.rowIndex="0">
+                              <children>
+                                <Button mnemonicParsing="false" text="%key.afforfund" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                                <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                                <Label text="%key.afforfundlabel" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+                              </children>
+                              <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              </columnConstraints>
+                              <rowConstraints>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              </rowConstraints>
+                            </GridPane>
+                            <GridPane GridPane.columnIndex="1" GridPane.rowIndex="1">
+                              <children>
+                                <Button mnemonicParsing="false" text="%key.barearea" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                                <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                                <Label text="%key.barearealabel" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+                              </children>
+                              <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              </columnConstraints>
+                              <rowConstraints>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              </rowConstraints>
+                            </GridPane>
+                            <GridPane GridPane.columnIndex="1" GridPane.rowIndex="2">
+                              <children>
+                                <Button mnemonicParsing="false" text="%key.natmortality" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                                <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                                <Label text="%key.natmortalitylabel" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+                              </children>
+                              <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              </columnConstraints>
+                              <rowConstraints>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              </rowConstraints>
+                            </GridPane>
+                            <GridPane GridPane.columnIndex="2" GridPane.rowIndex="0">
+                              <children>
+                                <Button mnemonicParsing="false" text="%key.area" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                                <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                                <Label text="%key.arealabel" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+                              </children>
+                              <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              </columnConstraints>
+                              <rowConstraints>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              </rowConstraints>
+                            </GridPane>
+                            <GridPane GridPane.columnIndex="2" GridPane.rowIndex="1">
+                              <children>
+                                <Button mnemonicParsing="false" text="%key.deadwood" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                                <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                                <Label text="%key.deadwoodlabel" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+                              </children>
+                              <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              </columnConstraints>
+                              <rowConstraints>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              </rowConstraints>
+                            </GridPane>
+                            <GridPane GridPane.columnIndex="2" GridPane.rowIndex="2">
+                              <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              </columnConstraints>
+                              <rowConstraints>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              </rowConstraints>
+                            </GridPane>
+                          </children>
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                        </GridPane>
+                      </children>
+                    </AnchorPane>
+                    <Label layoutX="32.0" layoutY="42.0" text="%key.general" />
+                    <Label layoutX="32.0" layoutY="179.0" text="%key.woodremovals" />
+                    <Label layoutX="32.0" layoutY="278.0" text="%key.carbonintrees" />
+                    <AnchorPane id="AnchorPane" layoutX="24.0" layoutY="198.0" minHeight="72.0" prefHeight="72.0">
+                      <children>
+                        <Rectangle arcHeight="15.0" arcWidth="15.0" fill="$x4" height="72.0" layoutX="-10.0" stroke="BLACK" strokeType="INSIDE" width="764.0" />
+                        <GridPane layoutX="8.0" layoutY="7.0" prefWidth="738.0">
+                          <children>
+                            <GridPane GridPane.columnIndex="0" GridPane.rowIndex="0">
+                              <children>
+                                <Button mnemonicParsing="false" text="%key.ffarea" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                                <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                                <Label text="%key.ffarealabel" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+                              </children>
+                              <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              </columnConstraints>
+                              <rowConstraints>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              </rowConstraints>
+                            </GridPane>
+                            <GridPane prefWidth="246.0" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                              <children>
+                                <Button mnemonicParsing="false" text="%key.pfvolume" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                                <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                                <Label text="%key.pfvolumelabel" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+                              </children>
+                              <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              </columnConstraints>
+                              <rowConstraints>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              </rowConstraints>
+                            </GridPane>
+                            <GridPane GridPane.columnIndex="1" GridPane.rowIndex="0">
+                              <children>
+                                <Button mnemonicParsing="false" text="%key.ffvolume" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                                <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                                <Label text="%key.ffvolumelabel" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+                              </children>
+                              <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              </columnConstraints>
+                              <rowConstraints>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              </rowConstraints>
+                            </GridPane>
+                            <GridPane GridPane.columnIndex="1" GridPane.rowIndex="1">
+                              <children>
+                                <Button mnemonicParsing="false" text="%key.thinarea" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                                <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                                <Label text="%key.thinarealabel" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+                              </children>
+                              <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              </columnConstraints>
+                              <rowConstraints>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              </rowConstraints>
+                            </GridPane>
+                            <GridPane GridPane.columnIndex="2" GridPane.rowIndex="0">
+                              <children>
+                                <Button mnemonicParsing="false" text="%key.pfarea" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                                <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                                <Label text="%key.pfarealabel" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+                              </children>
+                              <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              </columnConstraints>
+                              <rowConstraints>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              </rowConstraints>
+                            </GridPane>
+                            <GridPane GridPane.columnIndex="2" GridPane.rowIndex="1">
+                              <children>
+                                <Button mnemonicParsing="false" text="%key.thinvolume" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                                <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                                <Label text="%key.thinvolumelabel" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+                              </children>
+                              <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              </columnConstraints>
+                              <rowConstraints>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              </rowConstraints>
+                            </GridPane>
+                          </children>
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                        </GridPane>
+                      </children>
+                    </AnchorPane>
+                    <AnchorPane id="AnchorPane" layoutX="24.0" layoutY="300.0" minHeight="72.0" prefHeight="72.0">
+                      <children>
+                        <Rectangle arcHeight="15.0" arcWidth="15.0" fill="$x5" height="72.0" layoutX="-10.0" layoutY="1.0" stroke="BLACK" strokeType="INSIDE" width="764.0001220703125" />
+                        <GridPane layoutX="8.0" layoutY="7.0" prefWidth="738.0">
+                          <children>
+                            <GridPane GridPane.columnIndex="0" GridPane.rowIndex="0">
+                              <children>
+                                <Button mnemonicParsing="false" text="%key.branches" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                                <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                              </children>
+                              <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              </columnConstraints>
+                              <rowConstraints>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              </rowConstraints>
+                            </GridPane>
+                            <GridPane prefWidth="246.0" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                              <children>
+                                <Button mnemonicParsing="false" text="%key.foliage" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                                <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                              </children>
+                              <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              </columnConstraints>
+                              <rowConstraints>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              </rowConstraints>
+                            </GridPane>
+                            <GridPane GridPane.columnIndex="1" GridPane.rowIndex="0">
+                              <children>
+                                <Button mnemonicParsing="false" text="%key.coarseroots" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                                <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                              </children>
+                              <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              </columnConstraints>
+                              <rowConstraints>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              </rowConstraints>
+                            </GridPane>
+                            <GridPane GridPane.columnIndex="1" GridPane.rowIndex="1">
+                              <children>
+                                <Button mnemonicParsing="false" text="%key.stem" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                                <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                              </children>
+                              <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              </columnConstraints>
+                              <rowConstraints>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              </rowConstraints>
+                            </GridPane>
+                            <GridPane GridPane.columnIndex="2" GridPane.rowIndex="0">
+                              <children>
+                                <Button mnemonicParsing="false" text="%key.fineroots" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                                <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                              </children>
+                              <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              </columnConstraints>
+                              <rowConstraints>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              </rowConstraints>
+                            </GridPane>
+                            <GridPane GridPane.columnIndex="2" GridPane.rowIndex="1">
+                              <children>
+                                <Button mnemonicParsing="false" text="%key.total" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                                <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                              </children>
+                              <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              </columnConstraints>
+                              <rowConstraints>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              </rowConstraints>
+                            </GridPane>
+                          </children>
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                        </GridPane>
+                      </children>
+                    </AnchorPane>
+                    <Label layoutX="27.0" layoutY="380.0" text="%key.carboninsoil" />
+                  </children>
+                </AnchorPane>
+              </children>
+            </AnchorPane>
+          </content>
+        </Tab>
+      </tabs>
+    </TabPane>
+    <GridPane alignment="TOP_CENTER" hgap="5.0" layoutX="9.0" layoutY="404.0" prefWidth="153.0">
+      <children>
+        <Label text="%key.thinint" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+        <Label text="%key.fellint" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+        <Label text="%key.scaling" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+        <TextField fx:id="thinint" onAction="#thinint" prefWidth="200.0" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+        <TextField prefWidth="200.0" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+        <TextField prefWidth="200.0" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+        <Button mnemonicParsing="false" text="%key.apply" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+      </children>
+      <columnConstraints>
+        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+      </columnConstraints>
+      <padding>
+        <Insets left="5.0" />
+      </padding>
+      <rowConstraints>
+        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      </rowConstraints>
+    </GridPane>
+    <TreeView fx:id="selectionTree" layoutX="17.0" layoutY="41.0" onMouseClicked="#listenSelections" prefHeight="329.0" prefWidth="135.0" />
+    <Label layoutX="176.0" layoutY="37.0" text="%key.currentyear" />
+    <Text fx:id="warning" fill="#ff3333" layoutX="538.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text="warning" visible="false" />
+  </children>
+</AnchorPane>

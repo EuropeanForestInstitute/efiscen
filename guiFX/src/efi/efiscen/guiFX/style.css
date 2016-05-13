@@ -1,0 +1,90 @@
+/*
+ * Empty Stylesheet file.
+ */
+
+/*.mainFxmlClass {
+
+}*/
+.page-corner {
+    -fx-background-color: transparent;
+}
+.tooltip {
+    -fx-text-fill: -fx-dark-text-color;
+    -fx-background-radius: 0 0 0 0;
+    -fx-background-color:  white;
+}
+#AnchorPane {
+   /* -fx-fill: lightgreen;
+    -fx-background: lightgreen;
+    -fx-color: lightgreen;*/
+ /*  -fx-color: lightgray;
+   -fx-fill: lightgray;*/
+}
+#runbutton, .button, .menu-button, .tab, .toggle-button {
+    -fx-color: silver;
+    -fx-border-radius: 0px;
+    -fx-background-radius: 0px;
+    -fx-cursor: hand;
+}
+.button:hover, .toggle-button:hover, .menu-button:hover, .tab:hover, #runbutton:hover {
+    -fx-color: grey;
+}
+.panel {
+    -fx-background-color: #dfdfdf;
+    -fx-border-width: 1px;
+    -fx-border-color: black;
+    -fx-background-radius: 10px;
+    -fx-border-radius: 10px;
+    -fx-padding: 5px;
+  /* -fx-fill: lightgreen;
+   -fx-background: lightgray;*/
+}
+
+.panel_white {
+    -fx-background-color: white;
+    -fx-border-width: 1px;
+    -fx-border-color: black;
+    -fx-background-radius: 10px;
+    -fx-border-radius: 10px;
+    -fx-padding: 5px;
+}
+.tab:selected {
+    -fx-color: white;
+    -fx-background: white;
+}
+.tab-pane:top *.tab-header-area {
+    -fx-background-insets: 0, 0 0 1 0;
+}
+.chart-series-line {    
+    -fx-stroke-width: 2px;
+   /* -fx-effect: null;*/
+}
+
+.chart-plot-background {
+    -fx-background-color: #fcfcf8;
+}
+
+.chart-alternative-row-fill {
+    -fx-fill: #f9f8d8;
+}
+
+.chart-legend-item-symbol{
+   -fx-background-radius: 0;
+}
+
+.chart-line-symbol {
+    -fx-background-radius: 0px;
+    -fx-padding: 2px;
+}
+.panel_white {
+    -fx-fill: white;
+}
+/*
+.default-color0.chart-series-line { -fx-stroke: #008799; }
+.default-color1.chart-series-line { -fx-stroke: #999300; }
+.default-color2.chart-series-line { -fx-stroke: #006610; }
+/*
+.default-color0.chart-line-symbol { -fx-background-color: #008799, white; }
+.default-color1.chart-line-symbol { -fx-background-color: #999300, white; }
+.default-color2.chart-line-symbol { -fx-background-color: #f0ffdd; }
+*/

@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Copyright (C) 2016 European Forest Institute
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-->
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<?scenebuilder-preview-i18n-resource ../localization/language_en.properties?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="efi.efiscen.guiFX.FrameController">
+   <children>
+    <GridPane fx:id="scenariobox" alignment="TOP_CENTER" disable="false" hgap="5.0" layoutX="14.0" layoutY="385.0" prefHeight="142.0" prefWidth="283.0" styleClass="panel" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="385.0">
+      <children>
+        <Label id="thinint" fx:id="thinning" text="%key.thinint" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+        <Label id="fellint" fx:id="felling" text="%key.fellint" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+        <Label text="%key.scaling" GridPane.columnIndex="1" GridPane.rowIndex="2">
+</Label>
+        <TextField fx:id="thinint" onAction="#thinint" prefWidth="200.0" text="1.0" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+        <TextField id="fellingValue" fx:id="fellint" disable="false" prefWidth="200.0" text="1.0" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+        <TextField id="scalingValue" fx:id="scaling" prefWidth="200.0" text="1.0" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+        <Label fx:id="climate" text="%key.climate" visible="false" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+        <Label fx:id="management" text="%key.management" visible="false" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+          <Button mnemonicParsing="false" onAction="#calculate" prefWidth="78.0" text="%key.apply" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+        <Text fx:id="warning2" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="warning2" visible="false" GridPane.rowIndex="3" />
+      </children>
+      <columnConstraints>
+        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+      </columnConstraints>
+      <padding>
+        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+      </padding>
+      <rowConstraints>
+        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      </rowConstraints>
+    </GridPane>
+      <VBox layoutX="10.0" layoutY="534.0001220703125" AnchorPane.bottomAnchor="2.9999948242111714" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="534.0001220703125" />
+    <TextArea fx:id="console" editable="false" focusTraversable="false" layoutX="27.0" layoutY="1078.0001220703125" prefHeight="281.0" prefWidth="283.0" styleClass="panel_white" wrapText="true" AnchorPane.bottomAnchor="15.000116894523671" AnchorPane.leftAnchor="17.0" AnchorPane.topAnchor="544.0" />
+    <TabPane layoutX="329.0" layoutY="62.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="329.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="62.0">
+      <tabs>
+        <Tab fx:id="datapanel" onSelectionChanged="#totalTab" text="%key.total" />
+        <Tab fx:id="selecteddatapanel" onSelectionChanged="#selectedTab" text="%key.selected" />
+      </tabs>
+    </TabPane>
+    <Text fx:id="warning" fill="#ff3333" layoutX="861.0" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0" text="warning" visible="false" />
+    <TreeView fx:id="selectionTree" disable="true" layoutX="17.0" layoutY="41.0" prefHeight="329.0" prefWidth="282.0" styleClass="panel_white" visible="true" AnchorPane.leftAnchor="17.0" AnchorPane.topAnchor="41.0" />
+      <HBox alignment="CENTER" layoutX="343.0" layoutY="31.0" prefHeight="25.0" AnchorPane.leftAnchor="343.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="31.0">
+         <children>
+            <Label fx:id="country" prefHeight="17.0" prefWidth="99.0" text="%key.nodata" />
+            <HBox alignment="CENTER_RIGHT" layoutX="429.0" layoutY="36.0" prefHeight="25.0" prefWidth="327.0" spacing="40.0">
+               <children>
+                  <HBox alignment="CENTER" spacing="5.0">
+                     <children>
+                        <Label text="%key.baseyear" />
+                        <Label fx:id="baseYear" text="--" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" spacing="5.0">
+                     <children>
+                        <Label layoutX="658.0" layoutY="40.0" text="%key.yearsstep" />
+                        <Label fx:id="yearsPerStep" layoutX="737.0" layoutY="40.0" text="--" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" spacing="5.0">
+                     <children>
+                      <Label layoutX="768.0" layoutY="40.0" text="%key.currentyear" />
+                      <Label fx:id="currentYear" layoutX="851.0" layoutY="40.0" text="--" />
+                     </children>
+                  </HBox>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" layoutX="724.0" layoutY="31.0" prefHeight="25.0" prefWidth="306.0" spacing="15.0" HBox.hgrow="ALWAYS">
+               <children>
+                <ProgressIndicator fx:id="working" prefHeight="36.0" prefWidth="36.0" progress="-1.0" visible="false" />
+                <Label layoutX="724.0" layoutY="35.0" text="%key.steps" />
+                <TextField fx:id="steps" layoutX="768.0" layoutY="31.0" prefWidth="35.0" text="5" />
+                <Button id="runbutton" fx:id="runSimulation" disable="true" layoutX="821.0" layoutY="31.0" mnemonicParsing="false" onAction="#runSimulation" prefWidth="61.0" text="%key.run" />
+               </children>
+            </HBox>
+         </children>
+      </HBox>
+    <ToolBar minHeight="14.0" prefHeight="25.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <items>
+        <MenuButton mnemonicParsing="false" text="%key.file">
+          <items>
+            <MenuItem mnemonicParsing="false" onAction="#loadFiles" text="%key.loadfiles" />
+            <MenuItem fx:id="outputbtn" disable="true" mnemonicParsing="false" onAction="#showOutputDialog" text="%key.output" />
+            <MenuItem fx:id="exitbtn" mnemonicParsing="false" text="%key.exit" />
+          </items>
+        </MenuButton>
+        <Button mnemonicParsing="false" onAction="#showSettings" text="%key.settings" />
+        <Button fx:id="openLogs" disable="true" mnemonicParsing="false" onAction="#showLogWindow" text="Open logs" />
+        <Button mnemonicParsing="false" onAction="#showAboutWindow" text="%key.about" />
+      </items>
+    </ToolBar>
+   </children>
+</AnchorPane>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+Copyright (C) 2016 European Forest Institute
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-->
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.shape.*?>
+
+<AnchorPane id="AnchorPane" maxHeight="Infinity" maxWidth="Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="589.0" prefWidth="415.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+  <children>
+    <Rectangle arcHeight="5.0" arcWidth="0.0" fill="#bfbfbf" height="600.0" stroke="BLACK" strokeType="INSIDE" width="424.0" />
+  <Label layoutX="103.0" layoutY="27.0" text="EFISCEN forest resource modelling tool." />
+    <Rectangle arcHeight="25.0" arcWidth="25.0" fill="WHITE" height="393.0" layoutX="9.0" layoutY="80.0" stroke="BLACK" strokeType="INSIDE" width="406.0" />
+      <Label layoutX="15.0" layoutY="473.0" prefHeight="111.0" prefWidth="399.0" text="To cite EFISCEN in publications use: &#10;1. European Forest Institute (2016). &#10;EFISCEN: European Forest Information SCENario model, version 4.1. &#10;European Forest Institute, Joensuu, Finland. URL: http://efiscen.efi.int.&#10;2. Sallnäs, O. (1990). A matrix model of the Swedish forest. &#10;Studia Forestalia Suecica 183, 23.">
+         <font>
+            <Font name="System Italic" size="12.0" />
+         </font>
+      </Label>
+    <VBox id="VBox" alignment="CENTER" fillWidth="true" layoutX="19.0" layoutY="55.0" prefHeight="428.0" prefWidth="391.0" spacing="14.0" AnchorPane.bottomAnchor="106.0" AnchorPane.leftAnchor="19.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="55.0">
+      <children>
+        <Label text="Copyright (C) 2016 European Forest Institute" />
+        
+
+        <Label prefHeight="17.0" prefWidth="369.0" text="This program is free software: you can redistribute it and/or modify" />
+         <Label prefHeight="17.0" prefWidth="370.0" text="it under the terms of the GNU General Public License as published by" />
+         <Label prefHeight="17.0" prefWidth="372.0" text="the Free Software Foundation, either version 3 of the License, or" wrapText="true" />
+         <Label prefHeight="17.0" prefWidth="364.0" text="(at your option) any later version." />
+
+         <Label prefHeight="17.0" prefWidth="375.0" text="This program is distributed in the hope that it will be useful," />
+         <Label prefHeight="17.0" prefWidth="373.0" text="but WITHOUT ANY WARRANTY; without even the implied warranty of" />
+         <Label prefHeight="17.0" prefWidth="370.0" text="MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  " />
+         <Label prefHeight="17.0" prefWidth="371.0" text="See the GNU General Public License for more details." />
+
+         <Label prefHeight="17.0" prefWidth="371.0" text="You should have received a copy of the GNU General Public License" />
+         <Label prefHeight="17.0" prefWidth="366.0" text="along with this program.  If not, see http://www.gnu.org/licenses/." />
+      </children>
+    </VBox>
+  </children>
+</AnchorPane>
