@@ -54,6 +54,8 @@ public class DatabaseExporter {
      * @param server Address to a database where outputs will be saved. 
      * Addresses to external database usually resemble mysql.url.com/db_name. 
      * Database type is chosen by prefixing the address with the type name. 
+     * @param database database name to connect
+     * @param port DB server port
      * @param driver Driver type enumeration
      * @param username Username used to log into the database specified in the address.
      * @param password Password used to log into the database specified in the address.
