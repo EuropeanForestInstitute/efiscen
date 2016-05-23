@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <!--
 Copyright (C) 2016 European Forest Institute
 
@@ -47,16 +48,20 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
               <children>
                 <TextField fx:id="defusername" layoutX="14.0" layoutY="33.0" prefWidth="166.0" />
                 <Label layoutX="14.0" layoutY="19.0" text="%key.defusername" />
-                <Label layoutX="14.0" layoutY="60.0" text="%key.defpassword" />
-                <TextField fx:id="defpassword" layoutX="14.0" layoutY="74.0" prefWidth="166.0" />
-                <TextField fx:id="defdbaddress" layoutX="14.0" layoutY="117.0" prefWidth="291.0" />
-                <Label layoutX="14.0" layoutY="103.0" text="%key.defdatabaseaddress" />
+                <Label layoutX="194.0" layoutY="19.0" text="%key.defpassword" />
+                <TextField fx:id="defpassword" layoutX="194.0" layoutY="33.0" prefWidth="166.0" />
+                <TextField fx:id="defdbaddress" layoutX="15.0" layoutY="76.0" prefHeight="25.0" prefWidth="165.0" />
+                <Label layoutX="14.0" layoutY="62.0" text="%key.defdatabaseaddress" />
                 <ChoiceBox fx:id="dbtype" layoutX="14.0" layoutY="162.0">
                   <items>
                     <FXCollections fx:factory="observableArrayList" />
                   </items>
                 </ChoiceBox>
                 <Label layoutX="14.0" layoutY="148.0" text="%key.databasetype" />
+                        <Label layoutX="14.0" layoutY="103.0" prefHeight="17.0" prefWidth="163.0" text="%key.defdatabasename" />
+                        <TextField fx:id="defdbname" layoutX="14.0" layoutY="117.0" prefHeight="25.0" prefWidth="104.0" />
+                        <TextField fx:id="defdbport" layoutX="194.0" layoutY="76.0" prefHeight="25.0" prefWidth="60.0" />
+                        <Label layoutX="193.0" layoutY="62.0" prefHeight="17.0" prefWidth="152.0" text="%key.defdatabaseport" />
               </children>
             </AnchorPane>
           </content>

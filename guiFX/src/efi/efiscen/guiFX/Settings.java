@@ -21,7 +21,7 @@ import javafx.beans.property.StringProperty;
 
 /**
  * Stores the settings. Stores settings for default outputPath, default inputpath, default username,
- * default password, default DBaddress and default DBtype. The class is  used by 
+ * default password, default DBaddress default database name and default DBtype. The class is  used by 
  * the SettingsController class.
  * 
  */
@@ -31,6 +31,7 @@ public class Settings {
     private final StringProperty defaultUsername = new SimpleStringProperty();
     private final StringProperty defaultPassword = new SimpleStringProperty();
     private final StringProperty defaultDBAddress = new SimpleStringProperty();
+    private final StringProperty defaultDBName = new SimpleStringProperty();
     private final StringProperty defaultDBType = new SimpleStringProperty();
     private final StringProperty defaultPort = new SimpleStringProperty();
     
@@ -48,7 +49,10 @@ public class Settings {
     public StringProperty getDefaultInputPath() {
         return defaultInputPath;
     }
-
+    /**
+     * Returns default database port
+     * @return defaultPort
+     */
     public StringProperty getDefaultPort() {
         return defaultPort;
     }
@@ -70,11 +74,19 @@ public class Settings {
     }
 
     /**
-     * Returns default database address
+     * Returns default database address (URL)
      * @return defaultDBAddress
      */
     public StringProperty getDefaultDBAddress() {
         return defaultDBAddress;
+    }
+
+    /**
+     * Returns default database name
+     * @return defaultDBName
+     */
+    public StringProperty getDefaultDBName() {
+        return defaultDBName;
     }
     
     /**

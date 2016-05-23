@@ -45,6 +45,8 @@ public class SettingsController implements Initializable {
     @FXML private TextField defusername;
     @FXML private TextField defpassword;
     @FXML private TextField defdbaddress;
+    @FXML private TextField defdbname;
+    @FXML private TextField defdbport;
     @FXML private Button savesettings;
     @FXML private ChoiceBox dbtype;
     private final String settingsfile = "settings.txt";
@@ -53,6 +55,7 @@ public class SettingsController implements Initializable {
     private DirectoryChooser outputChooser;
     private DirectoryChooser inputChooser;
     private Stage thisWindow;
+    
     
     /**
      * Parameterized constructor that sets Settings class for the controller
@@ -120,6 +123,14 @@ public class SettingsController implements Initializable {
                 if(temp.length > 1)
                 settings.getDefaultDBAddress().set(temp[1]);
                 else settings.getDefaultDBAddress().set(null);
+            if(temp[0].equals("dbname")) 
+                if(temp.length > 1)
+                settings.getDefaultDBName().set(temp[1]);
+                else settings.getDefaultDBName().set(null);
+            if(temp[0].equals("port")) 
+                if(temp.length > 1)
+                settings.getDefaultPort().set(temp[1]);
+                else settings.getDefaultPort().set(null);
             if(temp[0].equals("type")) 
                 if(temp.length > 1)
                 settings.getDefaultDBType().set(temp[1]);
@@ -135,6 +146,8 @@ public class SettingsController implements Initializable {
         if(settings.getDefaultUsername().get()!=null) defusername.setText(settings.getDefaultUsername().get());
         if(settings.getDefaultPassword().get()!=null) defpassword.setText(settings.getDefaultPassword().get());
         if(settings.getDefaultDBAddress().get()!=null) defdbaddress.setText(settings.getDefaultDBAddress().get());
+        if(settings.getDefaultDBName().get()!=null) defdbname.setText(settings.getDefaultDBName().get());
+        if(settings.getDefaultPort().get()!=null) defdbport.setText(settings.getDefaultPort().get());
         if(settings.getDefaultDBType().get()!=null) dbtype.setValue(settings.getDefaultDBType().get());
     }
     
@@ -142,6 +155,7 @@ public class SettingsController implements Initializable {
      * Saves settings to the settings.txt file.
      * @param evt Event that triggered this method.
      */
+    @FXML
     public void saveSettings(ActionEvent evt) {
         savesettings.setDisable(true);
         new Thread(new Runnable() {
@@ -153,6 +167,8 @@ public class SettingsController implements Initializable {
                 settings.getDefaultUsername().set(defusername.getText());
                 settings.getDefaultPassword().set(defpassword.getText());
                 settings.getDefaultDBAddress().set(defdbaddress.getText());
+                settings.getDefaultDBName().set(defdbname.getText());
+                settings.getDefaultPort().set(defdbport.getText());
                 if (dbtype.getSelectionModel().getSelectedItem()!=null)
                     settings.getDefaultDBType().set(dbtype.getSelectionModel().getSelectedItem().toString());
                 File file = new File(settingsfile);
@@ -182,6 +198,16 @@ public class SettingsController implements Initializable {
                     String dbaddress = settings.getDefaultDBAddress().get();
                     if(dbaddress!=null && dbaddress.length()!=0) {
                         writer.write("address=" + dbaddress);
+                        writer.newLine();
+                    }
+                    String dbname = settings.getDefaultDBName().get();
+                    if(dbname!=null && dbname.length()!=0) {
+                        writer.write("dbname=" + dbname);
+                        writer.newLine();
+                    }
+                    String dbport = settings.getDefaultPort().get();
+                    if(dbport!=null && dbport.length()!=0) {
+                        writer.write("port=" + dbport);
                         writer.newLine();
                     }
                     String dbtype = settings.getDefaultDBType().get();
@@ -220,6 +246,7 @@ public class SettingsController implements Initializable {
      * Opens the window to choose an input file for settings. Sets the users selection
      * as default input path.
      */
+    @FXML
     public void chooseInput(){
         if(definputpath.getText().length()>0) {
             File path = new File(definputpath.getText());
@@ -241,6 +268,7 @@ public class SettingsController implements Initializable {
      * Opens the window to choose an output file for settings. Sets the users selection
      * as default output path.
      */
+    @FXML
     public void chooseOutput(){
         if(defoutputpath.getText().length()>0) {
             File path = new File(defoutputpath.getText());
