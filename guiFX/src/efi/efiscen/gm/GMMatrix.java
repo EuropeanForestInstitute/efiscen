@@ -1442,8 +1442,12 @@ public class GMMatrix implements Serializable {
             pCell = m_Cells.get(i);
             if (pCell.getM_Xmin() >= age) {
                 pCell.setM_FellingsShare(1.0f);
-                m_Cells.set(i, pCell);
+                //m_Cells.set(i, pCell);
             }
+            else {
+                pCell.setM_FellingsShare(0.0f);
+            }
+            m_Cells.set(i, pCell);
         }
         return m_Cells;
     }
@@ -1466,8 +1470,13 @@ public class GMMatrix implements Serializable {
             if (pCell.getM_Xmin() >= agel && pCell.getM_Xmax() <= ageh) {
                 pCell.setM_ThinShare(pCell.getM_MoveByXY() + pCell.getM_MoveByY());
                 pCell.setM_bThinned(true);
-                m_Cells.set(i, pCell);
+                //m_Cells.set(i, pCell);
             }
+            else {
+                pCell.setM_ThinShare(0.f);
+                pCell.setM_bThinned(false);
+            }
+            m_Cells.set(i, pCell);
         }
         return m_Cells;
     }

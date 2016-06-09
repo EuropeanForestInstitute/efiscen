@@ -3813,6 +3813,7 @@ public class InputLoader {
         if (m_pExperiment == null) {
             return false;
         }
+        eventLogger.logEntry(eventFileLoadStart, "filename " + sFileIn);
         //GMParLocator pplRet = new GMParLocator();
         String strLine;
         int nHowMany;
@@ -3875,6 +3876,7 @@ public class InputLoader {
         if (m_pExperiment == null) {
             return false;
         }
+        eventLogger.logEntry(eventFileLoadStart, "filename " + sFileIn);
         //GMParLocator pplRet = new GMParLocator();
         String strLine;
         int nHowMany;
