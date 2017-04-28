@@ -78,6 +78,28 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     the compile target as the regular run target does. Again, for a list of available 
     properties which you can use, check the target you are overriding in the
     nbproject/build-impl.xml file. 
-
+    
     -->
+    <target name="-post-init" description="Sets the buildversion for the current build">
+        <!--PLEASE NOTE, THAT GIT PATH HARDCODED HERE! CHANGE THIS WITH YOUR PATH -->
+        <exec executable="C:\Program Files\Git\cmd\git" outputproperty="git.revision" failifexecutionfails="false" errorproperty="">
+            <arg value="describe"/>
+            <arg value="--tags"/>
+            <arg value="--always"/>
+            <arg value="HEAD"/>
+        </exec>
+        <propertyfile file="${src.dir}/efi/efiscen/gui/resources/revision.properties">
+            <entry key="Application.revision" value="${git.revision}" type="string" operation="="/>
+        </propertyfile>
+        <echo>Revision found from Git: ${git.revision}</echo>
+       
+        <tstamp>
+                <format property="buildTime" pattern="HH:mm:ss" locale="en,UK"/>
+                <format property="buildDate" pattern="dd MMM yyyy" locale="en,UK"/>
+        </tstamp>
+        <propertyfile file="${src.dir}/efi/efiscen/gui/resources/revision.properties">
+                <entry key="Application.build_date" value="${buildDate} ${buildTime}"/>
+        </propertyfile>
+
+    </target>
 </project>

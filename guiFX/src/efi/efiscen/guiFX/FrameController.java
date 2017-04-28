@@ -169,12 +169,20 @@ public class FrameController implements Initializable, ChangeListener {
         logsWindow.setTitle(rb.getString("key.logs"));
         
         pane = loadFXML("about.fxml",null,rb);
+        //pane.getChildren().
+        
         aboutWindow = new Stage();
         aboutWindow.initModality(Modality.APPLICATION_MODAL);
         scene = new Scene(pane);
+        Label vlabel = (Label) scene.lookup("#versioninfo");
+        String sversion = vlabel.getText();
+        sversion = sversion+" "+Main.getRbToken("Application.revision")+" : ";
+        sversion += rb.getString("key.build")+" "+ Main.getRbToken("Application.build_date");
+        vlabel.setText(sversion);
         aboutWindow.setScene(scene);
         aboutWindow.setTitle(rb.getString("key.about"));
         aboutWindow.setResizable(false);
+        
         aboutWindow.initModality(Modality.APPLICATION_MODAL);
         printer.start();
         

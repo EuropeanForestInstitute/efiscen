@@ -17,20 +17,21 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 -->
 
-<?import javafx.scene.text.*?>
-<?import javafx.scene.image.*?>
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.paint.*?>
-<?import javafx.scene.shape.*?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" maxHeight="Infinity" maxWidth="Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="589.0" prefWidth="415.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane id="AnchorPane" maxHeight="Infinity" maxWidth="Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="589.0" prefWidth="415.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1">
   <children>
     <Rectangle arcHeight="5.0" arcWidth="0.0" fill="#bfbfbf" height="600.0" stroke="BLACK" strokeType="INSIDE" width="424.0" />
-  <Label layoutX="103.0" layoutY="27.0" text="EFISCEN forest resource modelling tool." />
+      <VBox layoutX="103.0" layoutY="16.0">
+         <children>
+        <Label text="EFISCEN forest resource modelling tool." />
+            <Label fx:id="versioninfo" alignment="CENTER" contentDisplay="CENTER" text="%key.version" textAlignment="CENTER" />
+         </children>
+      </VBox>
     <Rectangle arcHeight="25.0" arcWidth="25.0" fill="WHITE" height="393.0" layoutX="9.0" layoutY="80.0" stroke="BLACK" strokeType="INSIDE" width="406.0" />
       <Label layoutX="15.0" layoutY="473.0" prefHeight="111.0" prefWidth="399.0" text="To cite EFISCEN in publications use: &#10;1. European Forest Institute (2016). &#10;EFISCEN: European Forest Information SCENario model, version 4.1. &#10;European Forest Institute, Joensuu, Finland. URL: http://efiscen.efi.int.&#10;2. Sallnäs, O. (1990). A matrix model of the Swedish forest. &#10;Studia Forestalia Suecica 183, 23.">
          <font>

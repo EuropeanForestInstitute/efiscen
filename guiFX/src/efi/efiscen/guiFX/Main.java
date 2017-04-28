@@ -19,6 +19,7 @@ package efi.efiscen.guiFX;
 import java.io.File;
 import java.io.IOException;
 import java.util.Locale;
+import java.util.MissingResourceException;
 import java.util.ResourceBundle;
 import javafx.application.Application;
 import javafx.application.Platform;
@@ -39,9 +40,21 @@ import javafx.stage.WindowEvent;
  * 
  */
 public class Main extends Application {
-    
+    public static String currentRevision;
+    public static String buildTime;
     final ScrollPane sp = new ScrollPane();
 
+    // returns a given property from iplusmanager/revision.properties file
+    public static String getRbToken(String propToken) {
+	final ResourceBundle r = ResourceBundle.getBundle("efi/efiscen/gui/resources/revision");
+	String msg = "";
+	try {
+	    msg = r.getString(propToken);
+	} catch (MissingResourceException e) {
+	    System.err.println("Token ".concat(propToken).concat(" not in the Propertyfile."));
+	}
+	return msg;
+    }
     /**
      * Starts the GUI.
      * @param primaryStage Stage where GUI is set.
@@ -62,6 +75,8 @@ public class Main extends Application {
             System.exit(0);
         }
         //VBox box = new VBox();
+        currentRevision = getRbToken("Application.revision");
+        buildTime = getRbToken("Application.build_date");
         Scene scene = new Scene(root);
         primaryStage.setScene(scene);
         //box.getChildren().addAll(root);
@@ -74,7 +89,8 @@ public class Main extends Application {
         primaryStage.setMinHeight(768);
         primaryStage.setMinWidth(1024);
         primaryStage.setResizable(true);
-        primaryStage.setTitle("EFISCEN 4.1");
+        primaryStage.setTitle("EFISCEN V "+currentRevision);
+        
         primaryStage.setScene(scene);
         primaryStage.show();
         primaryStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
