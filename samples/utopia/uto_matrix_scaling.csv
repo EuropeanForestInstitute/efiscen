@@ -1,0 +1,8 @@
+Comment line (do not delete): Matrix scaling file
+Comment line (do not delete): scenario
+Base
+Comment line 3 (do not delete): Number of matrices for which data will be provided
+1
+Comment line 4 (do not delete): listing of matrices to which scaling factor should be applied; scaling factor
+0,0,0,0
+1

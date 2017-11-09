@@ -1,0 +1,8 @@
+Comment line (do not delete): afforestation scenario file
+Comment line (do not delete): name of scenario; number of matrices for which input is provided
+Base
+1
+Comment line (do not delete): listing of matrices for which input are provided
+0,0,0,0
+Comment line (do not delete): steps,affor_area,affor_carbon
+100,0,0

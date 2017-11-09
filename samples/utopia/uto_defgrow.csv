@@ -1,0 +1,12 @@
+Comment line (do not delete): Forest grow scenario file
+Comment line (do not delete): scenario  name followed by number of matrices for which age classes will be provided
+Current Climate
+1
+Comment line (do not delete): listing of matrices; age-class
+0,0,0,0
+1,300
+Comment line (do not delete): steps; listing of matrices; growth ratio
+100
+1
+0,0,0,0
+1,1

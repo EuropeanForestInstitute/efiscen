@@ -1,0 +1,10 @@
+Comment line (do not delete): final felling change scenario file
+Comment line (do not delete): name of scenario; number of matrices for which input is provided
+Base
+1
+Comment line (do not delete): listing of matrices for which input are provided
+0,0,0,0
+Comment line (do not delete): steps,fell_change_age
+2,75
+4,100
+100,75

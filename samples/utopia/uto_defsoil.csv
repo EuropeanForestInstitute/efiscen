@@ -1,0 +1,9 @@
+Comment line (do not delete): soil climate scenario file
+Comment line (do not delete): a1,a2,Tref,Dref
+0.000387,0.00325,1903,-32
+Comment line (do not delete): number of matrices for which data will be provided
+1
+Comment line (do not delete): listing of matrices for which data will be provided
+1,0,0,0
+Comment line (do not delete): step,DD,DI
+100,2067.585333,-59.56649925

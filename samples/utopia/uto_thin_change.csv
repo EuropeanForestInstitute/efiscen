@@ -1,0 +1,10 @@
+Comment line (do not delete): thinning change scenario file
+Comment line (do not delete): name of scenario; number of matrices for which input is provided
+Base
+1
+Comment line (do not delete): listing of matrices for which input are provided
+0,0,0,0
+Comment line (do not delete): steps,thin_change_lower,thin_change_upper
+2,20,75
+4,20,50
+100,20,70
