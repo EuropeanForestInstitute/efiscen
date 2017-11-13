@@ -26,8 +26,13 @@ import efi.efiscen.gm.GMParLocator;
 import efi.efiscen.gm.GMParArray;
 import efi.efiscen.gm.GMEfiscenario;
 import efi.efiscen.gm.GMSoil;
+import java.io.File;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import junit.framework.TestCase;
 
 /**
@@ -35,14 +40,27 @@ import junit.framework.TestCase;
  * EFI
  */
 public class InputLoaderTest extends TestCase {
-    
+    public String inputFolder;
+    public InputLoader instance;
     public InputLoaderTest(String testName) {
         super(testName);
+        String userfolder = System.getProperty("user.home");
+        String separator = File.separator;
+        inputFolder = userfolder + separator + "EFISCEN" + separator + "utopia" + separator;
+        instance = new InputLoader();
     }
     
     @Override
     protected void setUp() throws Exception {
-        super.setUp();
+        try {
+            super.setUp();
+            Map<String,String> filenames = new HashMap<>();
+            AtomicInteger numErrors = new AtomicInteger(0);
+            instance.loadExperiment(inputFolder+"utopia.efs", numErrors, filenames);
+        } catch (EFISCENException ex) {
+            Logger.getLogger(InputLoaderTest.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }
     
     @Override
@@ -76,10 +94,9 @@ public class InputLoaderTest extends TestCase {
      */
     public void testLoadScenario() throws EFISCENFileNotFoundException {
         System.out.println("loadScenario");
-        String sFileIn = "testutopia.scn";
-        InputLoader instance = new InputLoader();
+        String sFileIn = inputFolder + "utopia.scn";
         GMScenario expResult = new GMScenario();
-        expResult.m_sName = "Utopia base (business as ususal harvest)";
+        expResult.m_sName = "Utopia_base";
         AtomicInteger numErrors = new AtomicInteger();
         GMScenario result = instance.loadScenario(sFileIn,numErrors);
         assertTrue(result.m_sName.equals(expResult.m_sName));
@@ -90,8 +107,7 @@ public class InputLoaderTest extends TestCase {
      */
     public void testLoadBioParameters() throws EFISCENFileNotFoundException {
         System.out.println("loadBioParameters");
-        String sFileIn = "bio-utopia.txt";
-        InputLoader instance = new InputLoader();
+        String sFileIn = inputFolder + "biocomp-utopia.txt";
         
         GMEfiscen expResult = new GMEfiscen();
         GMParArray pPar = new GMParArray(1);
@@ -311,9 +327,8 @@ public class InputLoaderTest extends TestCase {
     
     public void testLoadBioParametersExperiment() throws EFISCENFileNotFoundException {
         System.out.println("loadBioParameters");
-        String sFileIn = "bio-utopia.txt";
-        InputLoader instance = new InputLoader();
-        
+        String sFileIn = inputFolder + "biocomp-utopia.txt";
+                
         GMEfiscen expResult = new GMEfiscen();
         GMParArray pPar = new GMParArray(1);
         pPar.m_uRegion = 0;
@@ -827,8 +842,8 @@ public class InputLoaderTest extends TestCase {
      */
     public void testLoadSoilsFull() throws EFISCENFileNotFoundException, EFISCENException {
         System.out.println("loadSoils");
-        String sFileIn = "utopia.efs";
-        InputLoader instance = new InputLoader();
+        String sFileIn = inputFolder + "soil-utopia.par";
+        
         GMEfiscen expResult = new GMEfiscen();
         instance.loadSoils(sFileIn);
         
@@ -880,9 +895,8 @@ public class InputLoaderTest extends TestCase {
      */
     public void testLoadParameters() throws EFISCENFileNotFoundException, EFISCENFileParsingException {
         System.out.println("loadParameters");
-        String sFileIn = "utopia.prs";
-        InputLoader instance = new InputLoader();
-        
+        String sFileIn = inputFolder + "utopia.prs";
+              
         GMEfiscen expResult = new GMEfiscen();
         expResult.m_nStep = 5;
         expResult.m_nBaseYear = 1990;
@@ -916,10 +930,10 @@ public class InputLoaderTest extends TestCase {
         expResult.m_plVolClasses.addParameter(pPar);
         
         pPar = new GMParArray(3);
-        pPar.m_uRegion = 1;
+        pPar.m_uRegion = 0;
         pPar.m_uOwner  = 0;
         pPar.m_uSite   = 0;
-        pPar.m_uSpecies = 1;
+        pPar.m_uSpecies = 0;
         pPar.m_Vals = new ArrayList<>();
         pPar.m_Vals.add(-2.0384f);
         pPar.m_Vals.add(1604.33f);
@@ -1418,8 +1432,8 @@ public class InputLoaderTest extends TestCase {
      */
     public void testLoadYLimits() throws EFISCENFileNotFoundException, EFISCENFileParsingException {
         System.out.println("loadYLimits");
-        String sFileIn = "utopiatest.vcl";
-        InputLoader instance = new InputLoader();
+        String sFileIn = inputFolder + "utopia.vcl";
+        //InputLoader instance = new InputLoader();
         
         GMParLocator expResult = new GMParLocator();
         GMParArray pPar = new GMParArray(10);
@@ -1559,8 +1573,8 @@ public class InputLoaderTest extends TestCase {
      */
     public void testLoadForClimV4() throws EFISCENFileNotFoundException {
         System.out.println("loadForClimV4");
-        String sFileIn = "uto_defgrowtest.csv";
-        InputLoader instance = new InputLoader();
+        String sFileIn = inputFolder + "uto_defgrow.csv";
+        
         GMScenario expResult = new GMScenario();
         
         //100,0.95,0,0.0,0,0.0,0,0.9,0,0.0,0,0.0,0
@@ -1580,7 +1594,7 @@ public class InputLoaderTest extends TestCase {
         pPar.m_uSpecies = 0;
         pPar.m_Vals.add(1f);
         pSc.getEs_paData().addParameter(pPar);
-        pSc.setEs_nStep(1000);
+        pSc.setEs_nStep(100);
         expResult.m_plForClim.add(pSc);
         
         instance.loadForClimV4(sFileIn);
@@ -1596,8 +1610,8 @@ public class InputLoaderTest extends TestCase {
      */
     public void testLoadSoilClim() throws EFISCENFileNotFoundException {
         System.out.println("loadSoilClim");
-        String sFileIn = "uto_defsoil.csv";
-        InputLoader instance = new InputLoader();      
+        String sFileIn = inputFolder +"uto_defsoil.csv";
+           
         GMScenario expResult = new GMScenario();
         
         GMEfiscenario pSc = new GMEfiscenario();
@@ -1610,7 +1624,7 @@ public class InputLoaderTest extends TestCase {
         pPar.m_uSpecies = 0;
         //3.180942545,-59.56649925
         //pPar.m_Vals.add(100f);
-        pPar.m_Vals.add(3.180942545f);
+        pPar.m_Vals.add(2067.585333f);
         pPar.m_Vals.add(-59.56649925f);
         pSc.getEs_paData().addParameter(pPar);
         
@@ -1641,8 +1655,8 @@ public class InputLoaderTest extends TestCase {
      */
     public void testLoadFelPropsEx() throws EFISCENFileNotFoundException {
         System.out.println("loadFelPropsEx");
-        String sFileIn = "uto_defremstest.csv";
-        InputLoader instance = new InputLoader();
+        String sFileIn = inputFolder +"uto_defrems.csv";
+        
         GMScenario expResult = new GMScenario();
         
         //100,0.95,0,0.0,0,0.0,0,0.9,0,0.0,0,0.0,0
@@ -1653,12 +1667,12 @@ public class InputLoaderTest extends TestCase {
         pPar.m_uOwner   = 0;
         pPar.m_uSite    = 0;
         pPar.m_uSpecies = 0;
-        pPar.m_Vals.add(0.95f);
+        pPar.m_Vals.add(0.85f);
         pPar.m_Vals.add(0f);
         pPar.m_Vals.add(0f);
         pPar.m_Vals.add(0f);
         pPar.m_Vals.add(0f);
-        pPar.m_Vals.add(0.9f);
+        pPar.m_Vals.add(0.85f);
         pPar.m_Vals.add(0f);
         pPar.m_Vals.add(0f);
         pPar.m_Vals.add(0f);
@@ -1679,8 +1693,7 @@ public class InputLoaderTest extends TestCase {
      */
     public void testLoadBusiness() throws EFISCENFileNotFoundException {
         System.out.println("loadBusiness");
-        String sFileIn = "uto_defcuttest.csv";
-        InputLoader instance = new InputLoader();
+        String sFileIn = inputFolder +"uto_defcut.csv";
         GMScenario expResult = new GMScenario();
         
         for(int i = 0; i < 8; i++) {
@@ -1695,50 +1708,50 @@ public class InputLoaderTest extends TestCase {
             switch(i) {
                 case 0 :{
                     //pPar.m_Vals.add(1f);
-                    pPar.m_Vals.add(49425.66016f);
-                    pPar.m_Vals.add(8978.420898f);
+                    pPar.m_Vals.add(20000.0f);
+                    pPar.m_Vals.add(10000.0f);
                     break;
                 }
                case 1 :{
                    //pPar.m_Vals.add(2f);
-                    pPar.m_Vals.add(32515.86133f);
-                    pPar.m_Vals.add(6503.633301f);
+                    pPar.m_Vals.add(20200.0f);
+                    pPar.m_Vals.add(10100.0f);
                     break;
                 }
                 case 2 :{
                     //pPar.m_Vals.add(3f);
-                    pPar.m_Vals.add(23468.51953f);
-                    pPar.m_Vals.add(6709.018066f);
+                    pPar.m_Vals.add(20400.0f);
+                    pPar.m_Vals.add(10200.0f);
                     break;
                 }
                 case 3 :{
                     //pPar.m_Vals.add(4f);
-                    pPar.m_Vals.add(19241.44922f);
-                    pPar.m_Vals.add(7189.809082f);
+                    pPar.m_Vals.add(20600.0f);
+                    pPar.m_Vals.add(10300.0f);
                     break;
                 }
                 case 4 :{
                     //pPar.m_Vals.add(5f);
-                    pPar.m_Vals.add(15334.39551f);
-                    pPar.m_Vals.add(7654.942383f);
+                    pPar.m_Vals.add(20800.0f);
+                    pPar.m_Vals.add(10400.0f);
                     break;
                 }
                 case 5 :{
                     //pPar.m_Vals.add(6f);
-                    pPar.m_Vals.add(13852.08691f);
-                    pPar.m_Vals.add(10798.77637f);
+                    pPar.m_Vals.add(21000.0f);
+                    pPar.m_Vals.add(10500.0f);
                     break;
                 }
                 case 6 :{
                     //pPar.m_Vals.add(7f);
-                    pPar.m_Vals.add(13723.27441f);
-                    pPar.m_Vals.add(12759.62012f);
+                    pPar.m_Vals.add(21200.0f);
+                    pPar.m_Vals.add(10600.0f);
                     break;
                 }
                 case 7 :{
                     //pPar.m_Vals.add(8f);
-                    pPar.m_Vals.add(14350.2627f);
-                    pPar.m_Vals.add(13377.79785f);
+                    pPar.m_Vals.add(21400.0f);
+                    pPar.m_Vals.add(10700.0f);
                     break;
                 }
             }
@@ -1856,8 +1869,7 @@ public class InputLoaderTest extends TestCase {
      */
     public void testLoadAforestation() throws EFISCENFileNotFoundException {
         System.out.println("loadAforestation");
-        String sFileIn = "no_affortest.csv";
-        InputLoader instance = new InputLoader();
+        String sFileIn = inputFolder + "uto_affor.csv";
         GMScenario expResult = new GMScenario();
         
         GMEfiscenario pSc = new GMEfiscenario();
@@ -1885,8 +1897,8 @@ public class InputLoaderTest extends TestCase {
      */
     public void testLoadDeforestation() throws EFISCENFileNotFoundException {
         System.out.println("loadDeforestation");
-        String sFileIn = "no_defotestr.csv";
-        InputLoader instance = new InputLoader();
+        String sFileIn = inputFolder + "uto_defor.csv";
+        
         GMScenario expResult = new GMScenario();
         
         GMEfiscenario pSc = new GMEfiscenario();

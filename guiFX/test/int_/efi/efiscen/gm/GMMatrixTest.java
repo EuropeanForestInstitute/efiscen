@@ -280,7 +280,7 @@ public class GMMatrixTest extends TestCase {
         instance.setThinningsSimple(0,5);
         instance.setFellingsSimple(0);
 
-        GMFellings expResult = new GMFellings(2f,18f,24280f,2f,2f,2f,2f,2f);
+        GMFellings expResult = new GMFellings(2f,18f,130f,2f,2f,2f,2f,2f);
         GMFellings result = instance.reportHarvest(pFl);
         //System.out.println(result);
         assertEquals(expResult.getF_volume(), result.getF_volume());
@@ -422,7 +422,7 @@ public class GMMatrixTest extends TestCase {
         expResult.add(cell);
         cInit = new GMCellInit(2,2,0,2f,2f,2f,2f,2f,2f,2f);
         cell = new GMCell(cInit);
-        cell.setM_Income(-1.1f);
+        cell.setM_Income(4.9f);
         cell.setM_MoveAway(1.0f);
         expResult.add(cell);
         ArrayList<GMCell> result = instance.growV4();
@@ -1105,11 +1105,11 @@ public class GMMatrixTest extends TestCase {
         pvols.add(2.0f);
         ArrayList<Float> pinvols = new ArrayList<>();
         pinvols.add(2.0f);
-        pinvols.add(2.0f);
+        pinvols.add(102.0f);
         int ntop = 2;
         float beta = 2.0F;
         GMMatrix instance = new GMMatrix(2,2);
-        GMMatrixInit init = new GMMatrixInit(2,2,2,2,2,2,2);
+        GMMatrixInit init = new GMMatrixInit(1,0,100,0,10,50,5);
         instance.initRegular(init);
         instance.fillRegular(2.0f);
         instance.setGrFunction(new GMGrFunction());
@@ -1121,7 +1121,7 @@ public class GMMatrixTest extends TestCase {
         expResult.add(cell);
         expResult.add(cell);
         GMCell cell2 = new GMCell();
-        cell2.setM_MoveByXOrg(0.0f);
+        cell2.setM_MoveByXOrg(0.5f);
         cell2.setM_MoveByXYOrg(0.0f);
         expResult.add(cell2);
         expResult.add(cell2);

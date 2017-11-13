@@ -50,8 +50,9 @@ public class GMScenarioTest extends TestCase {
         GMEfiscenario scen = new GMEfiscenario(0,new GMParLocator());
         GMScenario instance = new GMScenario(scen,scen,scen,scen,scen,scen,scen,
                 scen,scen);
-        //int expResult = 0;
-        GMEfiscenario expResult = instance.m_pCurCuttings;
+        int expResult = 0;
+        instance.getHeads();
+        //GMEfiscenario expResult = instance.m_pCurCuttings;
         int result = instance.checkScenario(nst);
         assertEquals(expResult, result);
     }

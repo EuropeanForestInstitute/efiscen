@@ -66,12 +66,12 @@ public class GMSimulationTest extends TestCase {
      */
     public void testStepScenario() {
         System.out.println("stepScenario");
-        GMSimulation instance = null;
-        GMEfiscen expResult = null;
+        GMEfiscen experiment = new GMEfiscen();
+        GMSimulation instance = new GMSimulation(experiment,new GMScenario(),0);
+        //GMEfiscen expResult = null;
         GMEfiscen result = instance.stepScenario();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(experiment, result);
+        
     }
 
     /**
@@ -91,12 +91,11 @@ public class GMSimulationTest extends TestCase {
      */
     public void testGetM_TotalVolume() {
         System.out.println("getM_TotalVolume");
-        GMSimulation instance = null;
+        GMSimulation instance = new GMSimulation(new GMEfiscen(),new GMScenario(),0);
         float expResult = 0.0F;
         float result = instance.getM_TotalVolume();
         assertEquals(expResult, result, 0.0);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        
     }
 
     /**

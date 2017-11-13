@@ -27,9 +27,12 @@ import junit.framework.TestCase;
  * EFI
  */
 public class LineReaderTest extends TestCase {
-    
+    public String inputFolder;
     public LineReaderTest(String testName) {
         super(testName);
+        String userfolder = System.getProperty("user.home");
+        String separator = File.separator;
+        inputFolder = userfolder + separator + "EFISCEN" + separator;
     }
 
     @Override
@@ -48,7 +51,7 @@ public class LineReaderTest extends TestCase {
     public void testReadLine_0args() throws EFISCENFileNotFoundException {
         System.out.println("readLine");
         Logger log = new Logger("errorLog.txt");
-        LineReader instance = new LineReader(new File("simpleTestFile.txt"),log);
+        LineReader instance = new LineReader(new File(inputFolder+"simpleTestFile.txt"),log);
         String expResult = "this is the first line read";
         String result = instance.readLine();
         assertEquals(expResult, result);
@@ -59,7 +62,7 @@ public class LineReaderTest extends TestCase {
      */
     public void testReadLine_File() throws EFISCENFileNotFoundException {
         System.out.println("readLine");
-        File file = new File("simpleTestFile.txt");
+        File file = new File(inputFolder+"simpleTestFile.txt");
         Logger log = new Logger("errorLog.txt");
         LineReader instance = new LineReader(file,log);
         String expResult = "this is the first line read";

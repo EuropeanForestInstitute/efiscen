@@ -48,8 +48,7 @@ public class GMMatrixInitTest extends TestCase {
         long expResult = 0L;
         long result = instance.getMi_id();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        
     }
 
     /**
@@ -57,11 +56,15 @@ public class GMMatrixInitTest extends TestCase {
      */
     public void testSetMi_id() {
         System.out.println("setMi_id");
-        long val = 0L;
+        long val = 8L;
         GMMatrixInit instance = new GMMatrixInit();
+        long expResult = 0L;
+        long result = instance.getMi_id();
+        assertEquals(expResult, result);
         instance.setMi_id(val);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        result = instance.getMi_id();
+        assertEquals(val, result);
+        
     }
 
     /**
@@ -73,8 +76,7 @@ public class GMMatrixInitTest extends TestCase {
         float expResult = 0.0F;
         float result = instance.getMi_xb();
         assertEquals(expResult, result, 0.0);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        
     }
 
     /**
@@ -85,8 +87,8 @@ public class GMMatrixInitTest extends TestCase {
         float val = 0.0F;
         GMMatrixInit instance = new GMMatrixInit();
         instance.setMi_xb(val);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(val,instance.getMi_xb());
+        
     }
 
     /**
@@ -98,8 +100,7 @@ public class GMMatrixInitTest extends TestCase {
         float expResult = 0.0F;
         float result = instance.getMi_xs();
         assertEquals(expResult, result, 0.0);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        
     }
 
     /**
@@ -107,11 +108,11 @@ public class GMMatrixInitTest extends TestCase {
      */
     public void testSetMi_xs() {
         System.out.println("setMi_xs");
-        float val = 0.0F;
+        float val = 5.0F;
         GMMatrixInit instance = new GMMatrixInit();
         instance.setMi_xs(val);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(val,instance.getMi_xs());
+       
     }
 
     /**
@@ -123,8 +124,7 @@ public class GMMatrixInitTest extends TestCase {
         float expResult = 0.0F;
         float result = instance.getMi_xt();
         assertEquals(expResult, result, 0.0);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        
     }
 
     /**
@@ -132,11 +132,11 @@ public class GMMatrixInitTest extends TestCase {
      */
     public void testSetMi_xt() {
         System.out.println("setMi_xt");
-        float val = 0.0F;
+        float val = 110.0F;
         GMMatrixInit instance = new GMMatrixInit();
         instance.setMi_xt(val);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(val,instance.getMi_xt());
+        
     }
 
     /**
@@ -148,8 +148,7 @@ public class GMMatrixInitTest extends TestCase {
         float expResult = 0.0F;
         float result = instance.getMi_yb();
         assertEquals(expResult, result, 0.0);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        
     }
 
     /**
@@ -160,8 +159,8 @@ public class GMMatrixInitTest extends TestCase {
         float val = 0.0F;
         GMMatrixInit instance = new GMMatrixInit();
         instance.setMi_yb(val);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(val,instance.getMi_yb());
+        
     }
 
     /**
@@ -173,8 +172,7 @@ public class GMMatrixInitTest extends TestCase {
         float expResult = 0.0F;
         float result = instance.getMi_ys();
         assertEquals(expResult, result, 0.0);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        
     }
 
     /**

@@ -47,7 +47,7 @@ public class GMSoilTest extends TestCase {
         double tarea = 1.0;
         GMSoil instance = new GMSoil(10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10);
         instance.setInOut(1.0);
-        double expResult = 80.0;
+        double expResult = 40.0;
         double result = instance.changeCarbon(tarea);
         assertEquals(expResult, result);
     }

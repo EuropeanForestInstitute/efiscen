@@ -49,7 +49,7 @@ public class GMFellingsTest extends TestCase {
         double result = instance.getF_area();
         assertEquals(expResult, result, 0.0);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //fail("The test case is a prototype.");
     }
 
     /**
@@ -57,11 +57,15 @@ public class GMFellingsTest extends TestCase {
      */
     public void testSetF_area() {
         System.out.println("setF_area");
-        double val = 0.0;
+        double val = 3.1415926;
         GMFellings instance = new GMFellings();
+        double expResult = 0.0;
+        double result = instance.getF_area();
+        assertEquals(expResult, result, 0.0);        
         instance.setF_area(val);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        result = instance.getF_area();
+        assertEquals(val, result, 0.0);
+        
     }
 
     /**
@@ -74,7 +78,7 @@ public class GMFellingsTest extends TestCase {
         double result = instance.getF_branch();
         assertEquals(expResult, result, 0.0);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //fail("The test case is a prototype.");
     }
 
     /**
@@ -82,11 +86,15 @@ public class GMFellingsTest extends TestCase {
      */
     public void testSetF_branch() {
         System.out.println("setF_branch");
-        double val = 0.0;
+        double val = 0.99;
         GMFellings instance = new GMFellings();
+        double expResult = 0.0;
+        double result = instance.getF_branch();
+        assertEquals(expResult, result, 0.0);        
         instance.setF_branch(val);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        result = instance.getF_branch();
+        assertEquals(val, result, 0.0);
+        
     }
 
     /**
@@ -99,7 +107,7 @@ public class GMFellingsTest extends TestCase {
         double result = instance.getF_croots();
         assertEquals(expResult, result, 0.0);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //fail("The test case is a prototype.");
     }
 
     /**
@@ -107,11 +115,15 @@ public class GMFellingsTest extends TestCase {
      */
     public void testSetF_croots() {
         System.out.println("setF_croots");
-        double val = 0.0;
+        double val = 0.44;
         GMFellings instance = new GMFellings();
+        double expResult = 0.0;
+        double result = instance.getF_croots();
+        assertEquals(expResult, result, 0.0);        
         instance.setF_croots(val);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        result = instance.getF_croots();
+        assertEquals(val, result, 0.0);
+        
     }
 
     /**
@@ -124,7 +136,7 @@ public class GMFellingsTest extends TestCase {
         double result = instance.getF_froots();
         assertEquals(expResult, result, 0.0);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //fail("The test case is a prototype.");
     }
 
     /**
@@ -132,11 +144,16 @@ public class GMFellingsTest extends TestCase {
      */
     public void testSetF_froots() {
         System.out.println("setF_froots");
-        double val = 0.0;
+        double val = 0.49;
         GMFellings instance = new GMFellings();
+        double expResult = 0.0;
+        double result = instance.getF_froots();
+        assertEquals(expResult, result, 0.0);        
         instance.setF_froots(val);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        expResult = 0.49;
+        result = instance.getF_froots();
+        assertEquals(expResult, result, 0.0);
+        
     }
 
     /**
@@ -149,7 +166,7 @@ public class GMFellingsTest extends TestCase {
         double result = instance.getF_leaves();
         assertEquals(expResult, result, 0.0);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //fail("The test case is a prototype.");
     }
 
     /**
@@ -157,11 +174,16 @@ public class GMFellingsTest extends TestCase {
      */
     public void testSetF_leaves() {
         System.out.println("setF_leaves");
-        double val = 0.0;
+        double val = 0.49;
         GMFellings instance = new GMFellings();
+        double expResult = 0.0;
+        double result = instance.getF_leaves();
+        assertEquals(expResult, result, 0.0);        
         instance.setF_leaves(val);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        expResult = 0.49;
+        result = instance.getF_leaves();
+        assertEquals(expResult, result, 0.0);
+        
     }
 
     /**
@@ -174,7 +196,7 @@ public class GMFellingsTest extends TestCase {
         double result = instance.getF_ratio();
         assertEquals(expResult, result, 0.0);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //fail("The test case is a prototype.");
     }
 
     /**
@@ -182,11 +204,15 @@ public class GMFellingsTest extends TestCase {
      */
     public void testSetF_ratio() {
         System.out.println("setF_ratio");
-        double val = 0.0;
+        double val = 0.14;
         GMFellings instance = new GMFellings();
+        double expResult = 0.0;
+        double result = instance.getF_ratio();
+        assertEquals(expResult, result, 0.0);        
         instance.setF_ratio(val);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        result = instance.getF_ratio();
+        assertEquals(val, result, 0.0);
+        
     }
 
     /**
@@ -199,7 +225,7 @@ public class GMFellingsTest extends TestCase {
         double result = instance.getF_stem();
         assertEquals(expResult, result, 0.0);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //fail("The test case is a prototype.");
     }
 
     /**
@@ -207,11 +233,15 @@ public class GMFellingsTest extends TestCase {
      */
     public void testSetF_stem() {
         System.out.println("setF_stem");
-        double val = 0.0;
+        double val = 0.99;
         GMFellings instance = new GMFellings();
+        double expResult = 0.0;
+        double result = instance.getF_stem();
+        assertEquals(expResult, result, 0.0);        
         instance.setF_stem(val);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        result = instance.getF_stem();
+        assertEquals(val, result, 0.0);
+        
     }
 
     /**
@@ -224,7 +254,7 @@ public class GMFellingsTest extends TestCase {
         double result = instance.getF_volume();
         assertEquals(expResult, result, 0.0);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //fail("The test case is a prototype.");
     }
 
     /**
@@ -232,11 +262,15 @@ public class GMFellingsTest extends TestCase {
      */
     public void testSetF_volume() {
         System.out.println("setF_volume");
-        double val = 0.0;
+        double val = 3.1415926;
         GMFellings instance = new GMFellings();
+        double expResult = 0.0;
+        double result = instance.getF_volume();
+        assertEquals(expResult, result, 0.0);        
         instance.setF_volume(val);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        result = instance.getF_volume();
+        assertEquals(val, result, 0.0);
+        
     }
 
     /**
@@ -245,10 +279,10 @@ public class GMFellingsTest extends TestCase {
     public void testToString() {
         System.out.println("toString");
         GMFellings instance = new GMFellings();
-        String expResult = "";
+        String expResult = "0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0";
         String result = instance.toString();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //fail("The test case is a prototype.");
     }
 }
