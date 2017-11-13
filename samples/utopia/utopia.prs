@@ -1,0 +1,74 @@
+#Experiment's parameters file
+#Utopia
+#Step of simulation (Number of years included in one simulation step)
+5
+#
+#Number of age classes (X axis)
+AgeClassNum 1
+0 0 0 0
+1 9
+#size of age class (X axis) (needs to be provided but is not used by model)
+X1 1
+0 0 0 0
+1 20
+#Number of volume classes (Y axis)
+VolClassNum 1
+0 0 0 0
+1 10
+#Width of volume class (Y axis) (needs to be provided but is not used by model)
+Y1 1
+0 0 0 0
+1 50.
+#
+#Growth function coefficients
+GrFunction 1
+0 0 0 0
+3 -2.0384 1604.33 -10256.0
+#Young forest coeff
+YForest 1
+0 0 0 1
+1 0.6
+#Growth boost
+Gamma 1
+0 0 0 0
+1 0.4
+#Final felling regime
+#for simplest regimes we provide only one number - minimum age after which final fellings can take place
+#in other case we provide 6 values: min_age max_age min_tresh max_tresh level_below starting_age_below 
+Harvest 1
+0 0 0 0
+1 75
+#Thinning range (ages during which thinnings can be performed)
+Thinrange 1
+0 0 0 0
+2 20 70
+#Coefficient to avoid matrix diversion
+Beta 1
+0 0 0 0
+1 0.4
+#Age classes of volume series
+AgeLims 1
+0 0 0 0
+9 20 40 60 80 100 120 140 160 180 200 220 240 260 280 300
+#Optimal growing stock per age class
+Volsers 1
+0 0 0 0
+15 14.  89. 158. 183. 200. 205. 210. 218. 226. 228. 228. 228. 228. 228. 228.
+#
+#Age classes for mortality rates
+MortAgeLims 1
+0 0 0 0
+1 1000
+#Proportion of growing stock that dies each time-step through ageing, suppression and/or disturbances
+MortRates 1
+0 0 0 0
+1 0.02
+#Proportion of standing deadwood that falls down each time step
+Decay 1
+0 0 0 0
+1 0.3867
+#Proportion of the area within the defined thinning range that is not available for thinnings, because of a recent thinning
+Thhistory 1
+0 0 0 0
+1 0.3
+#END

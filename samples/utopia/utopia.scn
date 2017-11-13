@@ -1,0 +1,24 @@
+#Efiscen_scenario file
+#Scenario name
+Utopia_base
+#Forest grow scenario file
+uto_defgrow.csv
+#Soil climate scenario file
+uto_defsoil.csv
+#cuttings regimes scenario file
+uto_defcut.csv
+#removals definition
+uto_defrems.csv
+#afforestation scenario file
+uto_affor.csv
+#deforestation scenario file
+uto_defor.csv
+#Species change
+nofile
+#Matrix scaling
+nofile
+#thinning change
+nofile
+#felling change
+nofile
+#END

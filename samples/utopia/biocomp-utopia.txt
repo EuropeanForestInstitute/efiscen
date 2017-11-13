@@ -1,0 +1,59 @@
+#Allocation of Biomass by compartments and litter production
+#Carbon content: proportion of carbon in total biomass dry matter 
+Carbon 1
+#All All All All
+0 0 0 0
+1 0.5
+#Basic wood density (Mg dry matter / m3 fresh volume)
+WoodDens 1
+#All All All Pine
+0 0 0 1
+1 0.4
+#Age classes for biomass distribution functions
+BioAgeLims 1
+#All All All All
+0 0 0 0
+7 20 40 60 80 100 120 1000
+#Proportion of total biomass in stem, branches, coarse roots, fine roots and foliage, by age-class
+BioAllocations 1
+#All All All pine
+0 0 0 1
+#stem share
+7 0.557 0.569 0.581 0.59 0.598 0.605 0.611
+#branches share
+7 0.15 0.143 0.138 0.134 0.131 0.128 0.125
+#coarse roots share
+7 0.133 0.143 0.151 0.157 0.163 0.167 0.171
+#fine roots share
+7 0.072 0.067 0.062 0.058 0.054 0.051 0.049
+#foliage share
+7 0.088 0.078 0.068 0.061 0.054 0.049 0.044
+#
+#Age classes for litter production functions
+LitterAgeLims 1
+#All All All All
+0 0 0 0
+7 20 40 60 80 100 120 1000
+#
+#Proportion of the living biomass in stem, branches, coarse roots, fine roots and foliage that is added to the litter pool each year, by age-class
+LitterProduction 1
+#south All All pine
+1 0 0 1
+#Stem
+7 0.0043 0.0043 0.0043 0.0043 0.0043 0.0043 0.0043
+#branches
+7 0.0614 0.0463 0.0266 0.0142 0.0091 0.0076 0.0071
+#coarse roots
+7 0.0614 0.0463 0.0266 0.0142 0.0091 0.0076 0.0071
+#fine roots
+7 0.4906 0.4906 0.4906 0.4906 0.4906 0.4906 0.4906
+#foliage
+7 0.21 0.21 0.21 0.21 0.21 0.21 0.21
+#
+#Proportion of litter from coarse roots going to the coarse woody litter class in YASSO
+WLCoarseRootsShare 1
+#All All All All
+0 0 0 0
+1 0.0
+#
+#END

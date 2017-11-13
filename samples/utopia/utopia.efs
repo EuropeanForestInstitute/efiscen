@@ -1,0 +1,30 @@
+EFISCEN experiment file
+#Experiment's initialisation file
+#Format EFISCEN 4.1
+Utopia
+#Base year (year for which forest inventory input data are provided)
+2015
+#Regions (geographical regions for which forest inventory input data are provided)
+1
+1 Somewhere
+#Owners (owner classes for which forest inventory input data are provided)
+1
+1 Someone
+#Sites (site-classes for which forest inventory input data are provided)
+1
+1 Something
+#Species (Tree species (groups) for which forest inventory input data are provided)
+1
+1 Pine
+#File name for parameters
+utopia.prs
+#
+#File name for bioparameters
+biocomp-utopia.txt
+#
+#File name for matrices
+utopia.aer
+#
+#File name for soils
+soil-utopia.par
+#END

@@ -1,0 +1,21 @@
+Comment line (do not delete): species change sample file
+Comment line (do not delete)
+Comment line (do not delete)
+Comment line (do not delete): Total number of of steps in the scenario
+1
+Comment line (do not delete): Number of matrices (species) that loose area (source):
+5
+Comment line (do not delete): Number of steps for which the following changes are valid (as in any scenario file)
+100
+#
+Comment line (do not delete): 1st line: region owner site species of source and number of destination species; 2nd line: Destination species and their proportions in the area to be regenerated
+1 1 1 5 4
+1 0.125000 2 0.125000 3 0.125000 4 0.125000 
+1 1 1 6 4
+1 0.125000 2 0.125000 3 0.125000 4 0.125000 
+1 1 1 7 4
+1 0.125000 2 0.125000 3 0.125000 4 0.125000 
+1 1 1 8 4
+1 0.125000 2 0.125000 3 0.125000 4 0.125000 
+1 1 1 9 4
+1 0.125000 2 0.125000 3 0.125000 4 0.125000 

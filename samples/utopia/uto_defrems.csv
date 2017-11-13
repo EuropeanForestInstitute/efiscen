@@ -1,0 +1,8 @@
+Comment line (do not delete): wood removal ratio scenario file
+Comment line (do not delete): name of scenario; number of matrices for which input is provided
+Base
+1
+Comment line (do not delete): listing of matrices for which input are provided
+0,0,0,0
+Comment line (do not delete): steps,Fel_stem,Fel_tops,Fel_branches,Fel_leaves,Fel_croots,Fel_dwood,Thin_stem,Thin_tops,Thin_branches,Thin_leaves,Thin_croots,Thin_dwood
+100,0.85,0,0,0,0,0,0.85,0,0,0,0,0

@@ -1,0 +1,21 @@
+#Parameter file for EFISCEN (soil)
+#Utopia
+soils 1
+#somewhere pine
+1 0 0 1
+#Initial carbon stock in soil compartment (Gg C)
+#coarse wl, fine wl, non wl, soluble, cellulose, lignin, humus1, humus2
+0 0 0 0 0 0 0 0
+#Decomposition rates
+#acwl afwl anwl ksol kcel klig khum1 khum2
+0.053 0.54 1.0 0.48 0.3 0.22 0.012 0.0012
+#proportion of mass decomposed in a compartment transferred to a subsequent compartment
+#psol pcel plig phum
+0.2 0.2 0.2 0.2
+#Litter composition
+#cw2cel cw2sol fw2cel fw2sol nw2cel nw2sol
+0.69 0.03 0.65 0.03 0.51 0.27
+#Climate dependence decomposition parameters
+#chum1 chum2
+0.6 0.36
+#END
