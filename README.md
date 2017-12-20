@@ -5,4 +5,4 @@ This repository contains the source code of the model and intends to support dev
 
 A compiled version of the model is available from: https://github.com/EuropeanForestInstitute/efiscen-users/tree/master/model
 
-Deatils on the model are available from: http://www.efi.int/portal/virtual_library/databases/efiscen/
+Details on the model are available from: http://www.efi.int/portal/virtual_library/databases/efiscen/
