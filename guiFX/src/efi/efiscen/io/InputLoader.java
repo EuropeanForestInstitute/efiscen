@@ -1638,8 +1638,9 @@ public class InputLoader {
             /**
              * TODO parameters for the constructor are named differently
              * than values passed there.
+             * DONE: Sergo EFI June 2018
              */
-            GMSoil pSol = new GMSoil(si_cwl, si_fwl, si_nwl, si_sol, si_cel, si_lig, si_hm1, si_hm2,
+            GMSoil pSol = new GMSoil(si_nwl, si_fwl, si_cwl, si_sol, si_cel, si_lig, si_hm1, si_hm2,
                     si_acwl, si_afwl, si_anwl, si_ksol, si_kcel, si_klig, si_khm1, si_khm2,
                     si_psol, si_pcel, si_plig, si_phum, si_cw2cel, si_cw2sol, si_fw2cel, si_fw2sol, si_nw2cel, si_nw2sol,
                     si_clhm1, si_clhm2);
