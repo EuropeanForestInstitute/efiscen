@@ -2974,7 +2974,7 @@ public class GMEfiscen implements Serializable {
      */
     public int distrDeforestation (GMParLocator plR) throws GMParLocator.GMParLocatorException {
         //GMParLocator plRat = new GMParLocator();
-        double ar,arin,artot,armat;
+        double ar,arcurr,arin,artot,armat;
         GMParArray pEl;
         for (Long uKey : m_BareFund.m_mdFund.keySet())
         {
@@ -2997,7 +2997,12 @@ public class GMEfiscen implements Serializable {
                 deferr = true;
                 ar = armat;
             }
-            m_BareFund.m_mdOutcome.put(uKey,ar);
+            if (m_BareFund.m_mdOutcome.containsKey(uKey)) {
+                arcurr = m_BareFund.m_mdOutcome.get(uKey);
+                m_BareFund.m_mdOutcome.put(uKey,ar+arcurr);
+            }
+            else 
+                m_BareFund.m_mdOutcome.put(uKey,ar);
             GMSoil pSoil = findSoil(uKey);
             if (pSoil != null) {
                 pSoil.addToPool(-1.0*ar);
@@ -3063,7 +3068,11 @@ public class GMEfiscen implements Serializable {
                     artot+=destar;
                 }
             }
-            m_BareFund.m_mdOutcome.put(uKey,artot);
+            if (m_BareFund.m_mdOutcome.containsKey(uKey)) {
+                arin = m_BareFund.m_mdOutcome.get(uKey);
+                m_BareFund.m_mdOutcome.put(uKey,artot+arin);
+            }
+            else m_BareFund.m_mdOutcome.put(uKey,artot);
             /*
             arin = pEl.getM_Vals.get(0);
             if (arin>0) {
