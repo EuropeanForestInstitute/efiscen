@@ -742,7 +742,7 @@ public class GMMatrix implements Serializable {
         int nHowMany;
         double ret;
         double factor,cfactor,carbon;
-        double dwoodharv,dwfell;
+        double dwoodharv,dwoodharv1,dwfell;
         double sstem,sbr,scr,sfr,slv;
         GMCell pCell;
         GMCell pCellTarget;
@@ -755,6 +755,7 @@ public class GMMatrix implements Serializable {
         sfr = 0.0;
         slv = 0.0;
         dwoodharv = 0.0;
+        dwoodharv1 = 0.0;
         nHowMany = m_wXsize*m_wYsize - 1;
 
         for (int i=0;i<=nHowMany;i++) {
@@ -787,7 +788,12 @@ public class GMMatrix implements Serializable {
                 dwfell = pFr.getF_froots() * pCell.getM_DWood();
                 if (dwfell > 0) {
                     pCell.setM_DWood((float)(pCell.getM_DWood()-dwfell));
-                    dwoodharv+=dwfell;
+                    //BUG fixing: double accounting of DW harvest. Now accumulate
+                    //here in separate variable dwoodharv1 instead dwoodharv as
+                    //it was before
+                    //TODO: debugging shows huge difference between two approaches
+                    //dwoodharv seems to be correct! February 2023
+                    dwoodharv1+=dwfell;
                     //pCell.setM_ThRem((float)(pCell.getM_ThRem()+dwfell));
                 }
                 
@@ -1617,7 +1623,7 @@ public class GMMatrix implements Serializable {
         int nHowMany;
         double ret;
         double factor,cfactor,carbon;
-        double dwoodharv,dwfell;
+        double dwoodharv,dwoodharv1,dwfell;
         double sstem,sbr,scr,sfr,slv;
         GMCell pCell;
 
@@ -1629,6 +1635,7 @@ public class GMMatrix implements Serializable {
         sfr = 0.0;
         slv = 0.0;
         dwoodharv = 0.0;
+        dwoodharv1 = 0.0;
 
         nHowMany = m_wXsize*m_wYsize - 1;
         for (int i=0;i<=nHowMany;i++) {
@@ -1665,7 +1672,12 @@ public class GMMatrix implements Serializable {
                 dwfell = pFr.getF_froots()*pCell.getM_DWood();
                 if (dwfell > 0) {
                     pCell.setM_DWood((float) (pCell.getM_DWood()-dwfell));
-                    dwoodharv+=dwfell;
+                    //BUG fixing: double accounting of DW harvest. Now accumulate
+                    //here in separate variable dwoodharv1 instead dwoodharv as
+                    //it was before
+                    //TODO: debugging shows huge difference between two approaches
+                    //dwoodharv seems to be correct! February 2023
+                    dwoodharv1+=dwfell;
                     pCell.setM_FelRem((float) (pCell.getM_FelRem()+dwfell));
                 }
                 
