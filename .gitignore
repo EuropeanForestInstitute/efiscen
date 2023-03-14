@@ -32,5 +32,6 @@ dist/
 nbdist/
 .nb-gradle/
 
-# macOS
+# OS generated files
 .DS_Store
+Thumbs.db
